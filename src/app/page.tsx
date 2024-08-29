@@ -1,10 +1,11 @@
 "use client"
 import Head from "@/components/home/Head";
+import Stack from "@/components/home/Stack";
 import Image from "next/image";
 import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
+    useEffect(() => {
     const mouseElement = document.getElementById('mouse');
 
     const handleMouseMove = (e: any) => {
@@ -25,6 +26,15 @@ export default function Home() {
     };
   }, []);
   return (
-   <Head /> 
+    <div className="p-5 bg-black fon cursor-none">
+
+    <div id="" className="bg-black fon cursor-none p-5 select-none border-[#242424] border-2 rounded-3xl">
+      <div id="mouse" className="fixed h-8 w-8 bg-gray-400/50 rounded-full shadow-lg transition-transform duration-150 ease-linear transform -translate-x-1/2 -translate-y-1/2" 
+        style={{ top: '40px', left: '40px' }}>
+      </div>
+      <Head /> 
+      <Stack />
+          </div>
+    </div>
   );
 }

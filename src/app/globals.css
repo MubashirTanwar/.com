@@ -5,3 +5,23 @@
 #mouse {
   transition: .1s linear
 }
+@keyframes scrollX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: scrollX 30s linear infinite;
+}
+.carousel-slide {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.cell-padding {
+  padding: 16px; /* Adjust the padding value as needed */
+}
