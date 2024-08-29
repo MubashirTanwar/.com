@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+#mouse {
+  transition: .1s linear
+}
