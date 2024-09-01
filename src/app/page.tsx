@@ -29,7 +29,7 @@ export default function Home() {
     <div className="p-5 bg-black fon cursor-none">
       <div
         id=""
-        className="bg-black fon cursor-none p-5 select-none border-[#242424] border-2 rounded-3xl"
+        className="bg-black fon cursor-none p-2 select-none border-[#242424] border-2 rounded-3xl"
       >
         <div
           id="mouse"
