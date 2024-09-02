@@ -32,18 +32,18 @@ function Links() {
        <div className=" rounded-3xl lg:col-span-1">
         <div className="flex lg:flex-col gap-4  h-full text-white">
           <div className="flex  min-h-24 w-1/2 lg:w-full flex-row gap-4 h-1/2">
-            <div className="rounded-3xl  bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-[#333]">
+            <div className="rounded-3xl  bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
                 <Github size={24} />
             </div>
-            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-[#0077b5]">
+            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
                 <Linkedin size={24} />
             </div>
           </div>
           <div className="flex  min-h-24 w-1/2 lg:w-full flex-row gap-4 h-1/2">
-            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-[#c71610]">
+            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
               <Mail size={24} />
             </div>
-            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-[#1da1f2]">
+            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
               <Twitter size={24} />
             </div>
           </div>
