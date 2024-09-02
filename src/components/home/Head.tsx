@@ -41,7 +41,7 @@ function Head() {
           <img
             src="/pfp.jpg"
             alt="Mubashir Tanwar"
-            className="rounded-3xl h-60 w-full object-cover"
+            className="rounded-3xl h-72 w-full object-cover"
           />
         </div>
       </div>

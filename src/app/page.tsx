@@ -1,6 +1,5 @@
 "use client";
-import Head from "@/components/home/Head";
-import Stack from "@/components/home/Stack";
+import { Projects, Stack, Carousel, Links, Head } from "@/components/home";
 import Image from "next/image";
 import { useEffect } from "react";
 
@@ -27,13 +26,10 @@ export default function Home() {
   }, []);
   return (
     <div className="p-5 bg-black">
-      <div
-        id=""
-        className="bg-black p-5 select-none border-[#242424] border-2 rounded-3xl"
-      >
-       
+      <div className="bg-black p-5 select-none border-[#242424] border-2 rounded-3xl">
         <Head />
         <Stack />
+        <Projects />
       </div>
     </div>
   );
