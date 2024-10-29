@@ -1,5 +1,6 @@
 // Projects.js
 import React from "react";
+import ExperienceTimeline from "./Experience";
 
 function Projects() {
   return (
@@ -42,6 +43,9 @@ function ExperienceCard() {
   return (
     <div className="bg-[#141414] border border-[#242424] rounded-3xl p-6">
       <h1 className="text-3xl text-white">Experience</h1>
+      <div className="space-y-4 mt-4">
+        <ExperienceTimeline />
+      </div>
     </div>
   );
 }
