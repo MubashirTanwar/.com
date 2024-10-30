@@ -4,8 +4,8 @@ import ExperienceTimeline from "./Experience";
 
 function Projects() {
   return (
-    <div className="grid grid-cols-3 lg:grid-cols-11 gap-4 pt-4">
-      <div className="col-span-3 lg:col-span-9 space-y-4">
+    <div className="grid grid-cols-3  gap-4 pt-4">
+      <div className="col-span-3  space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-4">
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <ProjectCard src="/projects/proj-1.jpeg" alt="Project 1" title="Project 1" />
@@ -18,9 +18,6 @@ function Projects() {
           </div>
         </div>
         <ExperienceCard />
-      </div>
-      <div className="col-span-3 lg:col-span-2">
-        <BlogsCard />
       </div>
     </div>
   );
