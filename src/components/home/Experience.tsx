@@ -77,9 +77,9 @@ export default function ExperienceTimeline() {
       {experiences.map((exp, index) => (
         <div
           key={index}
-          className="relative  hover:bg-[#121212] p-8 md:px-12 rounded-3xl"
+          className="relative text-justify hover:bg-[#121212] p-5 md:p-8 md:px-12 rounded-3xl"
         >
-          <div className="absolute left-0 md:left-4 top-0 ml-[3px] h-4/5 mt-5  w-[2px] bg-gray-500" />
+          <div className="absolute left-0 md:left-4 top-0 ml-[3px] h-full   w-[2px] bg-gray-500" />
           <div className="absolute left-0 md:left-4 top-10 w-2 h-2 rounded-full bg-purple-400" />
           <div className="flex justify-between items-start mb-1">
             <div className="text-2xl font-semibold text-white">{exp.title}</div>

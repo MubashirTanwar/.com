@@ -38,8 +38,8 @@ function BlogsCard() {
 
 function ExperienceCard() {
   return (
-    <div className="bg-[#141414] border border-[#242424] rounded-3xl p-6">
-      <h1 className="text-3xl text-white">Experience</h1>
+    <div className="bg-[#141414] border border-[#242424] rounded-3xl p-3 md:p-6">
+      <h1 className="text-3xl text-white pt-6 pl-6 md:p-0">Experience</h1>
       <div className="space-y-4 mt-4">
         <ExperienceTimeline />
       </div>
