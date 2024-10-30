@@ -25,8 +25,8 @@ export default function Home() {
     };
   }, []);
   return (
-    <div className="p-5 bg-black">
-      <div className="bg-black p-5 select-none border-[#242424] border-2 rounded-3xl">
+    <div className="p-3 md:p-5 bg-black">
+      <div className="bg-black p-3 md:p-5 select-none border-[#242424] border-2 rounded-3xl">
         <Head />
         <Stack />
         <Projects />

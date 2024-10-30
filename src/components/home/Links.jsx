@@ -1,5 +1,6 @@
 import React from 'react'
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
+import Link from 'next/link';
 function Links() {
     const Links = [
         {
@@ -22,7 +23,7 @@ function Links() {
         },
         {
             name: 'Mail',
-            url: 'mailto:tanwar0210@gmail.com',
+            url: 'mailto:me@mubashirtanwar.com',
             icon: <Mail />,
             hover: 'bg-[#c71610]'
         }
@@ -32,20 +33,22 @@ function Links() {
        <div className=" rounded-3xl lg:col-span-1">
         <div className="flex lg:flex-col gap-4  h-full text-white">
           <div className="flex  min-h-24 w-1/2 lg:w-full flex-row gap-4 h-1/2">
-            <div className="rounded-3xl  bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
-                <Github size={24} />
-            </div>
-            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
-                <Linkedin size={24} />
-            </div>
+            {
+              [0,1].map((i) => (
+                <Link href={Links[i].url} key={i} className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
+                  {Links[i].icon}
+                </Link>
+              ))
+            }
           </div>
           <div className="flex  min-h-24 w-1/2 lg:w-full flex-row gap-4 h-1/2">
-            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
-              <Mail size={24} />
-            </div>
-            <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
-              <Twitter size={24} />
-            </div>
+           {
+              [2,3].map((i) => (
+                <Link href={Links[i].url} key={i} className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
+                  {Links[i].icon}
+                </Link>
+              ))
+            }
           </div>
           
         </div>
