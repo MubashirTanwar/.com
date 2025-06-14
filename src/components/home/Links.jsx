@@ -1,5 +1,5 @@
 import React from 'react'
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
+import { Github, Linkedin, Twitter, Mail, FileText } from 'lucide-react'
 import Link from 'next/link';
 function Links() {
     const Links = [
@@ -16,9 +16,9 @@ function Links() {
             hover: 'bg-[#0077b5]'
         },
         {
-            name: 'Twitter',
-            url: 'https://twitter.com/MubashirTanwar',
-            icon: <Twitter />,
+            name: 'Resume',
+            url: '/resume',
+            icon: <FileText />,
             hover: 'bg-[#1da1f2]'
         },
         {

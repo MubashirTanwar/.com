@@ -58,8 +58,12 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
-  		}
+			}
+		},
+		fontFamily: {
+		  "quicksand": ["var(--font-quicksand)"],
+		  "inter": ["var(--font-inter)"],	
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

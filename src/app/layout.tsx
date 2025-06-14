@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+
 
 const inter = Montserrat({ subsets: ["latin"] });
+
+const quicksand = localFont({
+  src: "./fonts/Quicksand-VariableFont_wght.ttf",
+  variable: "--font-quicksand",
+  weight: "100 900",
+});
+
 
 export const metadata: Metadata = {
   title: "Mubashir Tanwar",
@@ -16,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={quicksand.variable}>
         <div className=" absolute pointer-events-none">
         <div className="background-image"></div>
         </div>

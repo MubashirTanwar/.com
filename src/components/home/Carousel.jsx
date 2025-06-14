@@ -9,7 +9,6 @@ const row2 = [
   'python.png',
   'javascript.png',
   'typescript.png',
-  'u-ejs.png',
   'u-react.png',
   'u-reactnext.png',
   'u-tailwind.png',
@@ -17,9 +16,11 @@ const row2 = [
   'v-anodejs.png',
   'v-bexpress.png',
   'v-django.png',
+  'fastapi.png',
   'v-mongodb.png',
   'v-mysql.png',
   'v-postgresql.png',
+  'docker.png',
   'v-wnpm.png',
 ]
 

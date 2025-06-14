@@ -1,0 +1,119 @@
+{
+  "personal": {
+    "name": "MUBASHIR TANWAR",
+    "location": "Mumbai",
+    "links": [
+      { "label": "Website", "url": "#" },
+      { "label": "Mail", "url": "mailto:mubashir@example.com" },
+      { "label": "GitHub", "url": "https://github.com/mubashir" },
+      { "label": "LinkedIn", "url": "https://linkedin.com/in/mubashir" }
+    ]
+  },
+  "skills": {
+    "Languages": "C, C++, Python, Javascript, Typescript, Golang",
+    "Frontend": "React.js, Next.js, Jinja, EJS, HTMX, Tailwind, Redux, Tanstack",
+    "Backend": "Node.js, Express, FastAPI, MongoDB, MySQL, Postgres",
+    "Libraries": "Numpy, Pandas, OpenCV, Transformers",
+    "Tools": "Git, Github, Postman, Vercel, Notion",
+    "Course": "DSA, DBMS, OS, Computer Network and Network Design"
+  },
+  "experience": [
+    {
+      "title": "SOFTWARE DEVELOPER INTERN",
+      "company": "ORIM Advisors, Mumbai",
+      "period": "Jan'25-Ongoing",
+      "responsibilities": [
+        "Developed a cloud provider interface using React, TypeScript, Tailwind, TanStack, Zustand for state management.",
+        "Led the creation of an in-house, accessible component library adopted across multiple services, reducing 2 dev days per week.",
+        "Contributed to the system design of core cloud infrastructure modelled after services like S3, EC2, and RDS.",
+        "Independently developed scraping pipelines, internal utility APIs, and custom UIs for trading data, used by company personnel and integrated into internal systems."
+      ]
+    },
+    {
+      "title": "DEEP LEARNING INTERN",
+      "company": "National Informatics Centre, Mumbai",
+      "period": "Jan'24-Oct-24",
+      "responsibilities": [
+        "Achieved 83% accuracy with a multimodal Vision Encoder-Decoder model for Marathi text recognition.",
+        "Automated 90% of dataset labelling, generating more than 135,000 labelled entries.",
+        "Developed a production Django API for efficient PDF OCR and duplicate detection using Elasticsearch."
+      ]
+    },
+    {
+      "title": "FULL STACK ENGINEER",
+      "company": "Fuzzy Nodes, Sydney (Remote), bestfares365",
+      "period": "Feb'24-Sept-24",
+      "responsibilities": [
+        "Engineered a complex CRM and airline booking website from the ground up, handling all business logic.",
+        "Integrated an agent wallet system with transaction logs, booking management, and dynamic pricing controls.",
+        "Implemented an algorithm to identify and offer the cheapest flight options."
+      ]
+    }
+  ],
+  "freelance": [
+    {
+      "title": "Freelance Projects",
+      "period": "May'24–Ongoing",
+      "description": "Productized a reusable eCommerce template featuring order and inventory management, CMS, dashboards with analytics, subscriptions, checkout, etc. Built and implemented across multiple international platforms.",
+      "ecommerceProjects": [
+        {
+          "name": "CardAgain",
+          "description": "Pokémon trading site with memberships, tier-based giveaways, and referral programs."
+        },
+        {
+          "name": "Press-On-Nails",
+          "description": "Beauty product store with loyalty points, referrals, and redemption workflows."
+        },
+        {
+          "name": "WWTG",
+          "description": "B2B platform with custom seller pricing, Bulk ordering logic."
+        },
+        {
+          "name": "Dreamrich",
+          "description": "Giveaways, Rewards and Memberships (Now Discontinued)"
+        }
+      ],
+      "specializedProjects": [
+        {
+          "name": "Prana",
+          "description": "Daily astrology site with consultation booking features."
+        },
+        {
+          "name": "Savaa",
+          "description": "Real estate listing platform with clean UI and filters."
+        },
+        {
+          "name": "Machinery Industries Tech (KSA) and Unilosa",
+          "description": "Internal ERP and CRM systems tailored to business"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Sudoku – Solver / Generator",
+      "period": "Feb'23–Mar'23",
+      "description": [
+        "Applied Knuth's Dancing Links algorithm to efficiently solve and generate Sudoku puzzles.",
+        "Compared and optimized solving techniques, including backtracking and 2D Boolean arrays.",
+        "Enhanced performance with a diagonal fill technique for quicker grid generation."
+      ]
+    },
+    {
+      "title": "Timetable Generation System (UCTP Solver using Genetic Algorithm)",
+      "period": "Sept'23–Jan'23",
+      "description": [
+        "Developed a timetable generation tool based on the University Course Timetabling Problem (UCTP), leveraging a Genetic Algorithm for constraint satisfaction.",
+        "The system efficiently generated accurate timetables that adhered to all hard and soft constraints, achieving faster convergence and better scalability compared to traditional heuristics."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Mumbai - M.H.S.S.C.E",
+      "degree": "Bachelor of Engineering in Computer Science Engineering (AIML)",
+      "period": "2021 - 2025",
+      "gpa": "CGPA 8.0/10.0"
+    }
+  ]
+}

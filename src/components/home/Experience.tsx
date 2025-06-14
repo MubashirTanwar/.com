@@ -18,8 +18,36 @@ interface Experience {
   githubLink?: string;
   liveLink?: string;
 }
+// •	Developed a cloud provider interface using React, TypeScript, Tailwind, TanStack, Zustand for state management.
+// •	Led the creation of an in-house, accessible component library adopted across multiple services, reducing 2 dev days per week.
+// •	Contributed to the system design of core cloud infrastructure modelled after services like S3, EC2, and RDS.
+// •	Independently developed scraping pipelines, internal utility APIs, and custom UIs for trading data, used by company personnel and integrated into internal systems. 
+
 
 const experiences: Experience[] = [
+  {
+    title: "Software Developer Intern",
+    company: "ORIM Advisors",
+    period: "Jan 2025 - May 2025",
+    description: [
+      "Developed a cloud provider interface using React, TypeScript, Tailwind, TanStack, Zustand for state management.",
+      "Led the creation of an in-house, accessible component library adopted across multiple services, reducing 2 dev days per week.",
+      "Contributed to the system design of core cloud infrastructure modelled after services like S3, EC2, and RDS.",
+      "Independently developed scraping pipelines, internal utility APIs, and custom UIs for trading data, used by company personnel and integrated into internal systems.",
+    ],
+    skills: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "TanStack",
+      "Zustand",
+      "Node.js",
+      "FastAPI",
+      "Postgres",
+      "Docker",
+      "Python",
+    ],
+  },
   {
     title: "Deep Learning Intern",
     company: "National Informatics Centre",
@@ -77,7 +105,7 @@ export default function ExperienceTimeline() {
       {experiences.map((exp, index) => (
         <div
           key={index}
-          className="relative text-justify hover:bg-[#121212] p-5 md:p-8 md:px-12 rounded-3xl"
+          className="relative hover:bg-[#121212] p-5 md:p-8 md:px-12 rounded-3xl"
         >
           <div className="absolute left-0 md:left-4 top-0 ml-[3px] h-full   w-[2px] bg-gray-500" />
           <div className="absolute left-0 md:left-4 top-10 w-2 h-2 rounded-full bg-purple-400" />

@@ -11,12 +11,12 @@ function Head() {
           <div className="p-6">
             <h1 className="mt-3 text-3xl text-white">Hi, I am Mubashir -</h1>
             <p className="mt-6 text-stone-500 text-xl">
-              Web Developer, Freelancer, Currently Learning Deep Learning
+              Software Developer, Freelancer
             </p>
           </div>
         </div>
         <div className="col-span-1 min-h-60 sm:min-h-48 group  rounded-3xl border border-[#242424] bg-[#141414] hover:bg-opacity-50 ">
-          <div className="relative h-full">
+          <div className="   h-full">
           <div className="p-6 ">
             <h1 className="text-xl font-medium text-stone-500">About</h1>
             <p className="mt-4 text-white text-3xl font-light">
