@@ -16,7 +16,7 @@ function Head() {
           </div>
         </div>
         <div className="col-span-1 min-h-60 sm:min-h-48 group  rounded-3xl border border-[#242424] bg-[#141414] hover:bg-opacity-50 ">
-          <div className="   h-full">
+          <div className="  relative  h-full">
           <div className="p-6 ">
             <h1 className="text-xl font-medium text-stone-500">About</h1>
             <p className="mt-4 text-white text-3xl font-light">
