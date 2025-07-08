@@ -31,11 +31,11 @@ function Links() {
     ]
   return (
        <div className=" rounded-3xl lg:col-span-1">
-        <div className="flex lg:flex-col gap-4  h-full text-white">
+        <div className="flex lg:flex-col gap-4  h-full text-[#1f1f1f] dark:text-[#cccccc]">
           <div className="flex  min-h-24 w-1/2 lg:w-full flex-row gap-4 h-1/2">
             {
               [0,1].map((i) => (
-                <Link href={Links[i].url} key={i} className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
+                <Link href={Links[i].url} key={i} className="rounded-3xl bg-white dark:bg-[#141414]  border border-[#d9dbde] dark:border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
                   {Links[i].icon}
                 </Link>
               ))
@@ -44,7 +44,7 @@ function Links() {
           <div className="flex  min-h-24 w-1/2 lg:w-full flex-row gap-4 h-1/2">
            {
               [2,3].map((i) => (
-                <Link href={Links[i].url} key={i} className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
+                <Link href={Links[i].url} key={i} className="rounded-3xl bg-white dark:bg-[#141414]  border border-[#d9dbde] dark:border-[#242424] w-full flex items-center justify-center hover:bg-opacity-50">
                   {Links[i].icon}
                 </Link>
               ))
@@ -59,20 +59,20 @@ function Links() {
 export default Links
 
 //    <div className="hidden lg:block rounded-3xl lg:col-span-1">
-//         <div className="flex-col  h-full text-white">
+//         <div className="flex-col  h-full text-[#1f1f1f] dark:text-[#cccccc]">
 //           <div className="flex pb-2 flex-row gap-4 h-1/2">
-//             <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center">
+//             <div className="rounded-3xl bg-white dark:bg-[#141414]  border border-[#d9dbde] dark:border-[#242424] w-full flex items-center justify-center">
 //                 <Github size={24} />
 //             </div>
-//             <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center"> 
+//             <div className="rounded-3xl bg-white dark:bg-[#141414]  border border-[#d9dbde] dark:border-[#242424] w-full flex items-center justify-center"> 
 //                 <Linkedin size={24} />
 //             </div>
 //           </div>
 //           <div className="flex pt-2 flex-row gap-4 h-1/2">
-//             <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center">
+//             <div className="rounded-3xl bg-white dark:bg-[#141414]  border border-[#d9dbde] dark:border-[#242424] w-full flex items-center justify-center">
 //               <Mail size={24} />
 //             </div>
-//             <div className="rounded-3xl bg-[#141414]  border border-[#242424] w-full flex items-center justify-center">
+//             <div className="rounded-3xl bg-white dark:bg-[#141414]  border border-[#d9dbde] dark:border-[#242424] w-full flex items-center justify-center">
 //               <Twitter size={24} />
 //             </div>
 //           </div>

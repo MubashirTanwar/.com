@@ -64,32 +64,32 @@ export default function ResumePage() {
   };
 
   return (
-    <div className="p-3 md:p-5 bg-black font-quicksand">
+    <div className="p-3 md:p-5 bg-[#f4f5f6] dark:bg-black font-quicksand">
       <div className="fixed bottom-0 right-0 z-50 p-4 md:p-6 ">
         <div
           onClick={downloadResume}
-          className="group flex flex-row items-center justify-center space-x-4 cursor-pointer p-4 rounded-full text-gray-300 border border-[#242424] p-x-4 w-full bg-[#141414] transition-colors duration-200"
+          className="group flex flex-row items-center justify-center space-x-4 cursor-pointer p-4 rounded-full text-gray-700 dark:text-gray-300 border border-[#d9dbde] dark:border-[#242424] p-x-4 w-full bg-white dark:bg-[#141414] transition-colors duration-200"
         >
           <span className="text-lg font-semibold">Download</span>
 
           <div className="">
-            <div className="relative border-2 border-[#242424] hover:border-[#343434] flex items-center justify-center rounded-full h-16 w-16 overflow-hidden  transition-transform duration-100 ease-in-out hover:rotate-45">
+            <div className="relative border-2 border-[#d9dbde] hover:border-[#d9dbde] dark:border-[#242424] flex items-center justify-center rounded-full h-16 w-16 overflow-hidden  transition-transform duration-100 ease-in-out hover:rotate-45">
               <div className="flex items-center justify-center">
                 <div className="absolute transition-transform duration-300 ease-in-out group-hover:translate-x-12 group-hover:-translate-y-12">
-                  <ArrowUpRight className="text-white h-6 w-6" />
+                  <ArrowUpRight className="text-[#1f1f1f] dark:text-[#cccccc] h-6 w-6" />
                 </div>
                 <div className="absolute transition-transform duration-300 ease-in-out -translate-x-12 translate-y-12 group-hover:translate-x-0 group-hover:-translate-y-0 ">
-                  <ArrowUpRight className="text-white h-6 w-6" />
+                  <ArrowUpRight className="text-[#1f1f1f] dark:text-[#cccccc] h-6 w-6" />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-black p-3 md:p-5 select-none border-[#242424] border-2 rounded-3xl">
+      <div className="bg-[#f4f5f6] dark:bg-black p-3 md:p-5 select-none border-[#d9dbde] dark:border-[#242424] border-2 rounded-3xl">
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-5 gap-0">
           {/* Left Sidebar - Navigation */}
-          <div className="col-span-1  rounded-3xl border border-[#242424] bg-[#141414] md:col-span-2 lg:col-span-1">
+          <div className="col-span-1  rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] md:col-span-2 lg:col-span-1">
             <div className="sticky top-0 p-2 md:p-8">
   <div className="md:space-y-1">
     {/* Mobile: Horizontal scrollable navigation */}
@@ -101,7 +101,7 @@ export default function ResumePage() {
           className={`flex-shrink-0 px-3 py-2 text-xs font-medium rounded-full transition-colors duration-200 whitespace-nowrap ${
             activeSection === section.id
               ? "text-blue-400 bg-blue-400/20 border border-blue-400/30"
-              : "text-gray-400 bg-gray-800/50 hover:text-white hover:bg-gray-700/50"
+              : "text-gray-600  bg-gray-800/50 hover:text-[#1f1f1f] dark:text-[#cccccc] hover:bg-gray-700/50"
           }`}
         >
           {section.label}
@@ -118,7 +118,7 @@ export default function ResumePage() {
           className={`block w-full text-left px-4 py-2 text-sm transition-colors duration-200 ${
             activeSection === section.id
               ? "text-blue-400 border-l-2 border-blue-400 bg-blue-400/5"
-              : "text-gray-400 hover:text-white"
+              : "text-gray-600  hover:text-[#1f1f1f] dark:text-[#cccccc]"
           }`}
         >
           {section.label}
@@ -130,7 +130,7 @@ export default function ResumePage() {
           </div>
 
           {/* Right Content - Resume */}
-          <div className="lg:col-span-4 pt-8 lg:pt-0 lg:pl-8 text-gray-400">
+          <div className="lg:col-span-4 pt-8 lg:pt-0 lg:pl-8 text-gray-600 dark:text-gray-400">
             <div className="w-full space-y-3 md:space-y-8">
               {/* Header Section */}
               <section
@@ -138,7 +138,7 @@ export default function ResumePage() {
                 ref={(el) => {
                   sectionRefs.current.header = el;
                 }}
-                className={`transition-all duration-300 rounded-3xl border border-[#242424] bg-[#141414] p-5 ${
+                className={`transition-all duration-300 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-5 ${
                   activeSection === "header"
                     ? "border-l-2  border-blue-400 pl-6"
                     : ""
@@ -148,7 +148,7 @@ export default function ResumePage() {
                   <h1 className="text-4xl font-bold mb-2">
                     {resumeData.personal.name}
                   </h1>
-                  <div className="text-gray-300 space-y-4">
+                  <div className="text-gray-700 dark:text-gray-300 space-y-4">
                     <p>{resumeData.personal.location}</p>
                     <div className="flex flex-wrap gap-4 text-sm">
                       {resumeData.personal.links.map((link, index) => (
@@ -165,7 +165,7 @@ export default function ResumePage() {
                           }
                           className="inline-block"
                         >
-                          <Badge className="bg-zinc-800 text-zinc-300">
+                          <Badge className="bg-zinc-200 dark:bg-zinc-700 text-zinc-500 dark:text-zinc-400 300">
                             {link.label}
                           </Badge>
                         </a>
@@ -181,7 +181,7 @@ export default function ResumePage() {
                 ref={(el) => {
                   sectionRefs.current.skills = el;
                 }}
-                className={`transition-all duration-300 rounded-3xl border border-[#242424] bg-[#141414] p-5 ${
+                className={`transition-all duration-300 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-5 ${
                   activeSection === "skills" ? " border-blue-400 pl-6" : ""
                 }`}
               >
@@ -194,7 +194,7 @@ export default function ResumePage() {
                       ([category, skills]) => (
                         <div key={category}>
                           <h3 className="font-semibold mb-2">{category}:</h3>
-                          <p className="text-gray-300">{skills}</p>
+                          <p className="text-gray-700 dark:text-gray-300">{skills}</p>
                         </div>
                       )
                     )}
@@ -208,7 +208,7 @@ export default function ResumePage() {
                 ref={(el) => {
                   sectionRefs.current.experience = el;
                 }}
-                className={`transition-all duration-300 rounded-3xl border border-[#242424] bg-[#141414] p-5 ${
+                className={`transition-all duration-300 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-5 ${
                   activeSection === "experience"
                     ? "border-l-2 border-blue-400 pl-6"
                     : ""
@@ -225,11 +225,11 @@ export default function ResumePage() {
                           <h3 className="text-xl font-semibold">{job.title}</h3>
                           <p className="text-blue-400">{job.company}</p>
                         </div>
-                        <span className="text-gray-400 text-sm">
+                        <span className="text-gray-600 dark:text-gray-400 text-sm">
                           {job.period}
                         </span>
                       </div>
-                      <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
+                      <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
                         {job.responsibilities.map((responsibility, idx) => (
                           <li key={idx}>{responsibility}</li>
                         ))}
@@ -245,7 +245,7 @@ export default function ResumePage() {
                 ref={(el) => {
                   sectionRefs.current.freelance = el;
                 }}
-                className={`transition-all duration-300 rounded-3xl border border-[#242424] bg-[#141414] p-5 ${
+                className={`transition-all duration-300 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-5 ${
                   activeSection === "freelance"
                     ? "border-l-2 border-blue-400 pl-6"
                     : ""
@@ -261,14 +261,14 @@ export default function ResumePage() {
                         <h3 className="text-xl font-semibold">
                           {freelanceWork.title}
                         </h3>
-                        <span className="text-gray-400 text-sm">
+                        <span className="text-gray-600 dark:text-gray-400 text-sm">
                           {freelanceWork.period}
                         </span>
                       </div>
-                      <div className="space-y-4 text-gray-300">
+                      <div className="space-y-4 text-gray-700 dark:text-gray-300">
                         <p>{freelanceWork.description}</p>
                         <div>
-                          <h4 className="font-semibold text-white mb-2">
+                          <h4 className="font-semibold text-[#1f1f1f] dark:text-[#cccccc] mb-2">
                             Developed custom eCommerce platforms:
                           </h4>
                           <ul className="list-disc list-inside space-y-1 ml-4">
@@ -283,7 +283,7 @@ export default function ResumePage() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-white mb-2">
+                          <h4 className="font-semibold text-[#1f1f1f] dark:text-[#cccccc] mb-2">
                             Delivered specialized platforms for diverse domains:
                           </h4>
                           <ul className="list-disc list-inside space-y-1 ml-4">
@@ -309,7 +309,7 @@ export default function ResumePage() {
                 ref={(el) => {
                   sectionRefs.current.projects = el;
                 }}
-                className={`transition-all duration-300 rounded-3xl border border-[#242424] bg-[#141414] p-5 ${
+                className={`transition-all duration-300 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-5 ${
                   activeSection === "projects"
                     ? "border-l-2 border-blue-400 pl-6"
                     : ""
@@ -325,11 +325,11 @@ export default function ResumePage() {
                         <h3 className="text-xl font-semibold">
                           {project.title}
                         </h3>
-                        <span className="text-gray-400 text-sm">
+                        <span className="text-gray-600 dark:text-gray-400 text-sm">
                           {project.period}
                         </span>
                       </div>
-                      <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
+                      <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
                         {project.description.map((desc, idx) => (
                           <li key={idx}>{desc}</li>
                         ))}
@@ -345,7 +345,7 @@ export default function ResumePage() {
                 ref={(el) => {
                   sectionRefs.current.education = el;
                 }}
-                className={`transition-all duration-300 rounded-3xl border border-[#242424] bg-[#141414] p-5 ${
+                className={`transition-all duration-300 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-5 ${
                   activeSection === "education"
                     ? "border-l-2 border-blue-400 pl-6"
                     : ""
@@ -362,13 +362,13 @@ export default function ResumePage() {
                           <h3 className="text-xl font-semibold">
                             {edu.institution}
                           </h3>
-                          <p className="text-gray-300">{edu.degree}</p>
+                          <p className="text-gray-700 dark:text-gray-300">{edu.degree}</p>
                         </div>
                         <div className="text-right">
-                          <span className="text-gray-400 text-sm">
+                          <span className="text-gray-600 dark:text-gray-400 text-sm">
                             {edu.period}
                           </span>
-                          <p className="text-gray-300">{edu.gpa}</p>
+                          <p className="text-gray-700 dark:text-gray-300">{edu.gpa}</p>
                         </div>
                       </div>
                     </div>

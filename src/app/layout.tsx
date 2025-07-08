@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import { ThemeProvider } from "./providers/theme-providers";
 
 
 const inter = Montserrat({ subsets: ["latin"] });
@@ -25,6 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+                <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+
       <body className={quicksand.variable}>
         <div className=" absolute pointer-events-none">
         <div className="background-image"></div>
@@ -35,6 +43,7 @@ export default function RootLayout({
           style={{ top: "40px", left: "40px" }}
         ></div>  */}
         {children}</body>
+          </ThemeProvider>
     </html>
   );
 }

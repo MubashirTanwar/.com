@@ -105,19 +105,19 @@ export default function ExperienceTimeline() {
       {experiences.map((exp, index) => (
         <div
           key={index}
-          className="relative hover:bg-[#121212] p-5 md:p-8 md:px-12 rounded-3xl"
+          className="relative hover:bg-[#f7f6f6] hover:dark:bg-[#121212]/70 p-5 md:p-8 md:px-12 rounded-3xl"
         >
           <div className="absolute left-0 md:left-4 top-0 ml-[3px] h-full   w-[2px] bg-gray-500" />
           <div className="absolute left-0 md:left-4 top-10 w-2 h-2 rounded-full bg-purple-400" />
           <div className="flex justify-between items-start mb-1">
-            <div className="text-2xl font-semibold text-white">{exp.title}</div>
+            <div className="text-2xl font-semibold text-[#1f1f1f] dark:text-[#cccccc]">{exp.title}</div>
             <div className="flex space-x-2">
               {exp.githubLink && (
                 <a
                   href={exp.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400"
+                  className="text-[#1f1f1f] dark:text-[#cccccc]"
                 >
                   <GithubIcon className="h-5 w-5" />
                 </a>
@@ -127,23 +127,23 @@ export default function ExperienceTimeline() {
                   href={exp.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400"
+                  className="text-[#1f1f1f] dark:text-[#cccccc]"
                 >
                   <ExternalLinkIcon className="h-5 w-5" />
                 </a>
               )}
             </div>
           </div>
-          <div className="mb-2 text-lg text-zinc-400">
+          <div className="mb-2 text-lg text-[#1f1f1f] dark:text-[#cccccc]">
             {exp.company} | {exp.period}
           </div>
           <ul className="space-y-3 mb-6">
             {exp.description.map((desc, descIndex) => (
               <li
                 key={descIndex}
-                className="flex items-start space-x-2 text-zinc-200"
+                className="flex items-start space-x-2 text-zinc-500 dark:text-zinc-400 200"
               >
-                <span className="text-md font-semibold text-zinc-400"> - </span>
+                <span className="text-md font-semibold text-[#1f1f1f] dark:text-[#cccccc]"> - </span>
                 <span className="text-base sm:text-lg leading-tight">
                   {desc}
                 </span>
@@ -156,7 +156,7 @@ export default function ExperienceTimeline() {
               <Badge
                 key={skillIndex}
                 variant="secondary"
-                className="bg-zinc-800 text-zinc-300"
+                className="bg-zinc-200 dark:bg-zinc-700 text-zinc-500 dark:text-zinc-400 300"
               >
                 {skill}
               </Badge>
@@ -178,7 +178,7 @@ export function Badge({
   className?: string;
 }) {
   const badgeVariants = {
-    primary: "bg-gray-800 text-gray-300",
+    primary: "bg-gray-800 text-gray-700 dark:text-gray-300",
     secondary: "bg-gray-300 text-gray-800",
   };
 

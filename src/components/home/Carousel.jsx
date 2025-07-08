@@ -41,7 +41,7 @@ export default function StackHome() {
             {row2.map((el, index) => (
               <div
                 key={index}
-                className="flex w-12 h-12 lg:w-20 lg:h-20 mx-4 bg-white/10 p-2 rounded-xl justify-center items-center px-1"
+                className="flex w-12 h-12 lg:w-20 lg:h-20 mx-4 bg-black/10 dark:bg-white/10 p-2 rounded-xl justify-center items-center px-1"
               >
                 <img
                   src={`/langs/${el}`}
@@ -55,7 +55,7 @@ export default function StackHome() {
             {row2.map((el, index) => (
               <div
                 key={index}
-                className="flex w-12 h-12 lg:w-20 lg:h-20 mx-4 bg-white/10 p-2 rounded-xl justify-center items-center px-1"
+                className="flex w-12 h-12 lg:w-20 lg:h-20 mx-4 bg-black/10 dark:bg-white/10 p-2 rounded-xl justify-center items-center px-1"
               >
                 <img
                   src={`/langs/${el}`}
