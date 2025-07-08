@@ -65,27 +65,6 @@ export default function ResumePage() {
 
   return (
     <div className="p-3 md:p-5 bg-[#f4f5f6] dark:bg-black font-quicksand">
-      <div className="fixed bottom-0 right-0 z-50 p-4 md:p-6 ">
-        <div
-          onClick={downloadResume}
-          className="group flex flex-row items-center justify-center space-x-4 cursor-pointer p-4 rounded-full text-gray-700 dark:text-gray-300 border border-[#d9dbde] dark:border-[#242424] p-x-4 w-full bg-white dark:bg-[#141414] transition-colors duration-200"
-        >
-          <span className="text-lg font-semibold">Download</span>
-
-          <div className="">
-            <div className="relative border-2 border-[#d9dbde] hover:border-[#d9dbde] dark:border-[#242424] flex items-center justify-center rounded-full h-16 w-16 overflow-hidden  transition-transform duration-100 ease-in-out hover:rotate-45">
-              <div className="flex items-center justify-center">
-                <div className="absolute transition-transform duration-300 ease-in-out group-hover:translate-x-12 group-hover:-translate-y-12">
-                  <ArrowUpRight className="text-[#1f1f1f] dark:text-[#cccccc] h-6 w-6" />
-                </div>
-                <div className="absolute transition-transform duration-300 ease-in-out -translate-x-12 translate-y-12 group-hover:translate-x-0 group-hover:-translate-y-0 ">
-                  <ArrowUpRight className="text-[#1f1f1f] dark:text-[#cccccc] h-6 w-6" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="bg-[#f4f5f6] dark:bg-black p-3 md:p-5 select-none border-[#d9dbde] dark:border-[#242424] border-2 rounded-3xl">
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-5 gap-0">
           {/* Left Sidebar - Navigation */}

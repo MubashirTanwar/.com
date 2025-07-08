@@ -24,7 +24,7 @@ export function ViewSource() {
 
         <>
           <Github className="w-5 h-5" />
-          <span className="text-sm font-medium">View Source</span>
+          <span className="text-sm font-medium"> Source</span>
         </>
 
 

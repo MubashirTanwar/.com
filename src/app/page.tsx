@@ -35,15 +35,6 @@ export default function Home() {
         <Head />
         <Stack />
         <Projects />
-              <div className="fixed bottom-0 right-0 z-50 p-4 md:p-6 flex items-center justify-end space-x-4">
-                <FamilyButton >
-                  
-        <ThemeToggle />
-        <DownloadResume />
-        <CopyMailButton />
-        <ViewSource />
-                  </FamilyButton>
-      </div>
       </div>
     </div>
   );

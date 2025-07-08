@@ -77,7 +77,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
         isExpanded
           ? {
               borderRadius: 20,
-              width: CONTAINER_SIZE,
+              width: 200,
               height: CONTAINER_SIZE + 50,
               transition: {
                 type: "spring",

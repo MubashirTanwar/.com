@@ -3,7 +3,11 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./providers/theme-providers";
-
+import { DownloadResume } from "@/components/home/DownloadResume";
+import { CopyMailButton } from "@/components/home/MailCopy";
+import { ViewSource } from "@/components/home/ViewSource";
+import FamilyButton from "@/components/ui/family-button";
+import { ThemeToggle } from "@/components/ui/theme-toggler";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -42,7 +46,17 @@ export default function RootLayout({
           className="hidden md:block z-[999] fixed h-8 w-8 bg-gray-400/50 rounded-full shadow-lg transition-transform duration-150 ease-linear transform -translate-x-1/2 -translate-y-1/2"
           style={{ top: "40px", left: "40px" }}
         ></div>  */}
-        {children}</body>
+        {children}
+                      <div className="fixed bottom-0 right-0 z-50 p-4 md:p-6 flex items-center justify-end space-x-4">
+                <FamilyButton >
+                  
+        <ThemeToggle />
+        <DownloadResume />
+        <CopyMailButton />
+        <ViewSource />
+                  </FamilyButton>
+      </div>
+        </body>
           </ThemeProvider>
     </html>
   );
