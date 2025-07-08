@@ -5,7 +5,7 @@ function Links() {
     const Links = [
         {
             name: 'Github',
-            url: 'htttps://github.com/MubashirTanwar',
+            url: 'https://github.com/MubashirTanwar',
             icon: <Github />,
             hover: 'bg-[#333]'
         },
