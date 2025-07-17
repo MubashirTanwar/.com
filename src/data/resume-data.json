@@ -3,10 +3,10 @@
     "name": "MUBASHIR TANWAR",
     "location": "Mumbai",
     "links": [
-      { "label": "Website", "url": "#" },
-      { "label": "Mail", "url": "mailto:mubashir@example.com" },
-      { "label": "GitHub", "url": "https://github.com/mubashir" },
-      { "label": "LinkedIn", "url": "https://linkedin.com/in/mubashir" }
+      { "label": "Website", "url": "www.mubashirtanwar.com" },
+      { "label": "Mail", "url": "mailto:tanwar0210@gmail.com" },
+      { "label": "GitHub", "url": "https://github.com/MubashirTanwar" },
+      { "label": "LinkedIn", "url": "https://linkedin.com/in/mubashir-tanwar" }
     ]
   },
   "skills": {
