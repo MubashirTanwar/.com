@@ -26,14 +26,35 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    title: "SDE-1",
+    company: "Prana (PranaIndia)",
+    period: "July 2025 - Present",
+    description: [
+      "Built the customer-facing pranaindia.com (Next.js/TypeScript) and implemented real-time chat and voice-call consultations end-to-end in-house over WebSockets, replacing paid third-party APIs and sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
+      "Built a TypeScript/Express microservices backend, deployed on AWS EC2 with auto-scaling, ECR, and Amplify using blue-green deployments.",
+      "Built an in-house A/B testing and user-behaviour tracking library, running 10+ experiments across 150,000+ weekly users to drive changes that lifted landing-to-consultation conversion 3x (2% to 6%).",
+      "Shipped office.pranaindia.com, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows.",
+    ],
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Express",
+      "WebSockets",
+      "AWS",
+      "Docker",
+      "MongoDB",
+    ],
+    liveLink: "https://pranaindia.com",
+  },
+  {
     title: "Software Developer Intern",
     company: "ORIM Advisors",
-    period: "Jan 2025 - May 2025",
+    period: "Jan 2025 - Apr 2025",
     description: [
-      "Developed a cloud provider interface using React, TypeScript, Tailwind, TanStack, Zustand for state management.",
-      "Led the creation of an in-house, accessible component library adopted across multiple services, reducing 2 dev days per week.",
-      "Contributed to the system design of core cloud infrastructure modelled after services like S3, EC2, and RDS.",
-      "Independently developed scraping pipelines, internal utility APIs, and custom UIs for trading data, used by company personnel and integrated into internal systems.",
+      "Built the front-end console for an internal cloud platform in React/TypeScript, using TanStack Query and Zustand for server- and client-state management.",
+      "Led an in-house, accessible component library adopted across multiple internal services, cutting ~2 dev-days/week of duplicated UI work.",
+      "Contributed to the system design of core cloud infrastructure modelled on S3, EC2, and RDS.",
+      "Built scraping pipelines, internal utility APIs, and custom trading-data UIs used across company systems.",
     ],
     skills: [
       "React",
@@ -53,11 +74,9 @@ const experiences: Experience[] = [
     company: "National Informatics Centre",
     period: "Jan 2024 - Oct 2024",
     description: [
-      "Developed a multimodal Vision Encoder-Decoder model for Marathi OCR, achieving 83% accuracy on handwritten and printed text recognition.",
-      "Created a semi-supervised data labeling pipeline for dataset generation, producing over 135,000 labeled entries, automating 95% of the labeling process.",
-      "Built and deployed a Django and FastAPI API integrated with Elasticsearch",
-      "Managed full-stack production challenges, including GPU constraints, model optimization, and creating a custom Marathi dataset",
-      "Delivered a groundbreaking document management system, solving a significant problem in goverment agencies.",
+      "Fine-tuned a TrOCR Vision Encoder-Decoder (Google ViT encoder + Marathi-BERT-v2 decoder) in PyTorch/Hugging Face to 83% accuracy, used to digitize handwritten Marathi government letters received by the office.",
+      "Automated 90% of dataset labelling to build a self-curated corpus of 135,000+ line- and word-level image-text pairs.",
+      "Built a production Django API for PDF OCR with Elasticsearch-backed document deduplication, which passed a successful alpha test in the NIC Mumbai office.",
     ],
     skills: [
       "Python",
@@ -75,12 +94,13 @@ const experiences: Experience[] = [
     company: "Fuzzy Nodes",
     period: "Feb 2024 - Sept 2024",
     description: [
-      "Led development of a CRM and ticket booking system for bestfares365.com.au, focusing on business-critical requirements for B2B transactions and hierarchical access control.",
-      "Engineered a comprehensive wallet feature for agent bookings, enabling flows for transaction logs, top-ups, and refunds.",
-      "Designed and implemented a dynamic price control module based on their business requirments, enabling itinerary-based discounts, markups, and add-ons for agents and airlines.",
+      "Rebuilt the bestfares365 CRM and airline-booking platform on the MERN stack, integrating the Amadeus API for flight search, fares, and ticketing.",
+      "Implemented a fare-search algorithm layered on Amadeus that widened the search space across route and connection combinations and sorted candidates to surface cheaper itineraries than direct queries.",
+      "Built an agent wallet with transaction logs and a dynamic-pricing engine applying configurable markups per route, airline, and agent.",
+      "Replaced the company's legacy booking system with the new platform, adopted across both customer and travel-agent channels.",
     ],
 
-    skills: ["NextJS", "Node.js", "Express", "MongoDB", "CRM"],
+    skills: ["React", "Node.js", "Express", "MongoDB", "Amadeus API"],
     githubLink: "", // Add link if available
     liveLink: "https://bestfares365.com.au/", // Add link if available
   },

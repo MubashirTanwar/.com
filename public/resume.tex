@@ -1,0 +1,141 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.2 in,top=0.2in,right=0.2 in,bottom=0.2in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{mubashir tanwar} % Your name
+% You can merge both of these into a single line, if you do not have a website.
+\address{
+\href{tel:+918828351676}{+91 8828351676} -
+\href{https://tanwar.vercel.app}{Website} -
+\href{https://www.linkedin.com/in/mubashir-tanwar/}{LinkedIn} -
+\href{https://github.com/MubashirTanwar}{GitHub}
+}
+
+%----------------------------------------------------------------------------------------
+%    UTIL
+%----------------------------------------------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue}
+\linespread{0.9}\selectfont
+
+\newcommand{\experience}[5]{
+    \textbf{#1} @ \textit{\textbf{#2}} \hfill #3, \textit{#4}
+    \vspace{-7pt}
+    \begin{itemize}[leftmargin=*]
+        \itemsep -7pt {}
+        #5
+    \end{itemize}
+    \vspace{-4pt}
+}
+
+\newcommand{\project}[4]{
+    \item \textbf{#1} --- \href{#2}{GitHub} \hfill \textit{#3}\\
+    #4
+    \vspace{-5pt}
+}
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%    EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{EXPERIENCE}
+
+\experience{SDE-1}{\href{https://pranaindia.com}{Prana (PranaIndia)}}{July 2025 -- Present}{Banglore}{
+    \item Built the customer-facing pranaindia.com (Next.js/TypeScript) and implemented \textbf{real-time chat and voice-call} consultations end-to-end \textbf{in-house} over WebSockets, replacing paid third-party APIs and sustaining \textbf{150+ concurrent chats at sub-200ms latency} with AES-GCM encrypted messaging.
+    \item Built a TypeScript/Express \textbf{microservices} backend, deployed on \textbf{AWS EC2 with auto-scaling}, ECR, and Amplify using \textbf{blue-green deployments}.
+    \item Built an in-house \textbf{A/B testing and user-behaviour tracking library}, running \textbf{20+ experiments across 150,000+ weekly users} to drive strategic changes that lifted landing-to-consultation conversion \textbf{3x (2\% $\to$ 6\%)}.
+    \item Shipped \textbf{office.pranaindia.com}, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows.
+}
+
+\experience{Software Developer Intern}{ORIM Advisors}{Jan 2025 -- Apr 2025}{Mumbai}{
+    \item Built the front-end console for an internal cloud platform in \textbf{React/TypeScript}, using TanStack Query and Zustand for server- and client-state management.
+    \item Led an in-house, \textbf{accessible component library} adopted across multiple internal services, cutting \textbf{{$\sim$}2 dev-days/week} of duplicated UI work.
+    \item Contributed to the \textbf{system design} of core cloud infrastructure modelled on \textbf{S3, EC2, and RDS}.
+    \item Built \textbf{scraping pipelines}, internal utility APIs, and custom trading-data UIs used across company systems.
+}
+
+\experience{Deep Learning Intern}{National Informatics Centre}{Jan 2024 -- Oct 2024}{Mumbai}{
+    \item Fine-tuned a \textbf{TrOCR Vision Encoder-Decoder} (Google ViT encoder + Marathi-BERT-v2 decoder) in PyTorch/Hugging Face to \textbf{83\% accuracy}, used to digitize handwritten Marathi government letters received by the office.
+    \item \textbf{Automated 90\%} of dataset labelling to build a self-curated corpus of \textbf{135,000+} line- and word-level image--text pairs.
+    \item Built a production \textbf{Django API} for PDF OCR with \textbf{Elasticsearch}-backed document deduplication, which passed a successful alpha test in the NIC Mumbai office.
+}
+
+\experience{Full Stack Engineer}{\href{https://bestfares365.com.au}{Fuzzy Nodes}}{Feb 2024 -- Sept 2024}{Remote}{
+    \item Rebuilt the bestfares365 CRM and airline-booking platform on the \textbf{MERN stack}, integrating the \textbf{Amadeus API} for flight search, fares, and ticketing.
+    \item Implemented a \textbf{fare-search algorithm} layered on Amadeus that widened the search space across route and connection combinations and sorted candidates to \textbf{surface cheaper itineraries} than direct queries.
+    \item Built an \textbf{agent wallet} with transaction logs and a \textbf{dynamic-pricing engine} applying configurable markups per route, airline, and agent.
+    \item Replaced the company's legacy booking system with the new platform, adopted across both customer and travel-agent channels.
+}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%    PROJECTS
+%----------------------------------------------------------------------------------------
+\vspace{-1pt}
+\begin{rSection}{PROJECTS}
+\vspace{-12pt}
+
+\project{CoWordle --- Real-time Multiplayer Wordle}{https://github.com/MubashirTanwar/CoWordle}{Next.js, Socket.IO, MongoDB}{
+    Real-time multiplayer Wordle (\href{https://co-wordle.vercel.app/}{live}) where players in a room race on the same word over Socket.IO. The server validates guesses and holds the answer so clients can't cheat, and reconnects restore in-progress games. MongoDB stores rooms, rounds, and scores.
+}
+\project{Sudoku --- Solver / Generator}{https://github.com/MubashirTanwar/Sudoku}{C++}{ % TODO: confirm repo URL
+    Applied \textbf{Knuth's Dancing Links algorithm} to efficiently solve and generate Sudoku puzzles. Compared and optimized solving techniques including \textbf{backtracking} and 2D Boolean arrays, and enhanced performance with a \textbf{diagonal fill technique} for quicker grid generation.
+}
+\project{Timetable Generation System (UCTP)}{https://github.com/MubashirTanwar/Timetable}{Python}{ % TODO: confirm repo URL
+    Built a \textbf{Genetic Algorithm} solver for the University Course Timetabling Problem (UCTP), modeling room, instructor, and student-group clashes as hard constraints and preferences and gaps as soft, and tuning a penalty-based fitness function to converge on conflict-free schedules.
+}
+
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%    EDUCATION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+{\bf M.H. Saboo Siddik College of Engineering (MHSSCE), University of Mumbai} \hfill {2021 -- 2025}\\
+Bachelor of Engineering in Computer Science Engineering (AIML), CGPA: 8.0/10.0
+
+\end{rSection}
+%----------------------------------------------------------------------------------------
+% SKILLS
+%----------------------------------------------------------------------------------------
+\vspace{-5pt}
+\begin{rSection}{SKILLS}
+\vspace{-2pt}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{4ex}} l @{\hspace{10ex}} >{\bfseries}l @{\hspace{4ex}} l @{}}
+Languages: & C, C++, Python, JavaScript, TypeScript, Golang  & Databases: & MongoDB, MySQL, Postgres \\
+Frontend: & React.js, Next.js, Tailwind, Redux, Tanstack  & Libraries:  & Numpy, Pandas, OpenCV \\
+Backend: & Node.js, Express, FastAPI, Prisma    & DevOps: & AWS (EC2, S3, ECR,), Docker \\
+Tools: & Git, Postman, Vercel, Notion    & & \\
+\end{tabular}\\
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% ACHIEVEMENTS
+%----------------------------------------------------------------------------------------
+
+% No achievements were listed on your source resume, so this section is left commented
+% out to avoid fabricating any. Uncomment and fill in if you have achievements to add.
+%
+% \vspace{-9pt}
+% \begin{rSection}{Achievements}
+%
+% \begin{itemize}[leftmargin=*]
+%     \itemsep -7pt
+%     \item Your achievement here.
+% \end{itemize}
+%
+% \end{rSection}
+
+
+\end{document}
