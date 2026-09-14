@@ -1,10 +1,12 @@
 \ProvidesClass{resume}[2010/07/10 v0.9 Resume class]
 
-\LoadClass[10pt,letterpaper]{article} % Font size and paper type
+\LoadClass[11pt,letterpaper]{article} % Font size and paper type
 
 \usepackage[parfill]{parskip} % Remove paragraph indentation
 \usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \usepackage{ifthen} % Required for ifthenelse statements
+\usepackage{xcolor} % Section heading colour
+\definecolor{sectioncolor}{rgb}{0.33725,0.54903,0.72157}
 
 \pagestyle{empty} % Suppress page numbers
 
@@ -75,11 +77,11 @@
 % \rSection is used to define a section
 \newenvironment{rSection}[1]{ % 1 input argument - section name
   \sectionskip
-  \MakeUppercase{\bf #1} % Section title
+  {\color{sectioncolor}\MakeUppercase{\bf #1}} % Section title
   \sectionlineskip
   \hrule % Horizontal line
   \begin{list}{}{ % List for each individual item in the section
-    \setlength{\leftmargin}{1.5em} % Margin within the section
+    \setlength{\leftmargin}{0em} % Margin within the section
   }
   \item[]
 }{
@@ -104,7 +106,7 @@
 }
 
 % The below commands define the whitespace after certain things in the document.
-\def\namesize{\huge} % Size of the name at the top of the document
+\def\namesize{\LARGE} % Size of the name at the top of the document
 \def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
 \def\sectionlineskip{\medskip} % The space above the horizontal line for each section
 \def\nameskip{\bigskip} % The space after your name at the top

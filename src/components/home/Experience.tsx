@@ -30,7 +30,7 @@ const experiences: Experience[] = [
     company: "Prana (PranaIndia)",
     period: "July 2025 - Present",
     description: [
-      "Built the customer-facing pranaindia.com (Next.js/TypeScript) and implemented real-time chat and voice-call consultations end-to-end in-house over WebSockets, replacing paid third-party APIs and sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
+      "Built the customer-facing pranaindia.com (Next.js/TypeScript) and the real-time chat and voice-call consultation service from scratch, buffering messages in Redis and batch-flushing them to the database, sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
       "Built a TypeScript/Express microservices backend, deployed on AWS EC2 with auto-scaling, ECR, and Amplify using blue-green deployments.",
       "Built an in-house A/B testing and user-behaviour tracking library, running 10+ experiments across 150,000+ weekly users to drive changes that lifted landing-to-consultation conversion 3x (2% to 6%).",
       "Shipped office.pranaindia.com, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows.",
@@ -40,6 +40,7 @@ const experiences: Experience[] = [
       "TypeScript",
       "Express",
       "WebSockets",
+      "Redis",
       "AWS",
       "Docker",
       "MongoDB",
@@ -49,7 +50,7 @@ const experiences: Experience[] = [
   {
     title: "Software Developer Intern",
     company: "ORIM Advisors",
-    period: "Jan 2025 - Apr 2025",
+    period: "Jan 2025 - May 2025",
     description: [
       "Built the front-end console for an internal cloud platform in React/TypeScript, using TanStack Query and Zustand for server- and client-state management.",
       "Led an in-house, accessible component library adopted across multiple internal services, cutting ~2 dev-days/week of duplicated UI work.",

@@ -13,7 +13,7 @@
     "Languages": "C, C++, Python, JavaScript, TypeScript, Golang",
     "Frontend": "React.js, Next.js, Tailwind, Redux, Tanstack",
     "Backend": "Node.js, Express, FastAPI, Prisma",
-    "Databases": "MongoDB, MySQL, Postgres",
+    "Databases": "MongoDB, MySQL, Postgres, Redis",
     "Libraries": "Numpy, Pandas, OpenCV, Transformers",
     "DevOps": "AWS (EC2, S3, ECR, Amplify), Docker",
     "Tools": "Git, Postman, Vercel, Notion"
@@ -24,7 +24,7 @@
       "company": "Prana (PranaIndia), Bangalore",
       "period": "Jul'25 - Present",
       "responsibilities": [
-        "Built the customer-facing pranaindia.com (Next.js/TypeScript) and implemented real-time chat and voice-call consultations end-to-end in-house over WebSockets, replacing paid third-party APIs and sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
+        "Built the customer-facing pranaindia.com (Next.js/TypeScript) and the real-time chat and voice-call consultation service from scratch, buffering messages in Redis and batch-flushing them to the database, sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
         "Built a TypeScript/Express microservices backend, deployed on AWS EC2 with auto-scaling, ECR, and Amplify using blue-green deployments.",
         "Built an in-house A/B testing and user-behaviour tracking library, running 10+ experiments across 150,000+ weekly users to drive changes that lifted landing-to-consultation conversion 3x (2% to 6%).",
         "Shipped office.pranaindia.com, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows."
@@ -33,7 +33,7 @@
     {
       "title": "SOFTWARE DEVELOPER INTERN",
       "company": "ORIM Advisors, Mumbai",
-      "period": "Jan'25 - Apr'25",
+      "period": "Jan'25 - May'25",
       "responsibilities": [
         "Built the front-end console for an internal cloud platform in React/TypeScript, using TanStack Query and Zustand for server- and client-state management.",
         "Led an in-house, accessible component library adopted across multiple internal services, cutting ~2 dev-days/week of duplicated UI work.",
@@ -112,8 +112,8 @@
       "title": "Sudoku – Solver / Generator",
       "period": "Feb'23–Mar'23",
       "description": [
-        "Applied Knuth's Dancing Links algorithm to solve and generate Sudoku puzzles.",
-        "Compared and optimized solving techniques including backtracking and 2D Boolean arrays, and enhanced performance with a diagonal fill technique for quicker grid generation."
+        "Benchmarked backtracking against Knuth's Dancing Links (Algorithm X over a 324-constraint exact-cover matrix). On a puzzle built to break backtracking, DLX visits 81 nodes vs 69 million (0.03ms vs 1.9s).",
+        "The generator seeds the diagonal boxes and uses DLX to guarantee every puzzle has a unique solution."
       ]
     },
     {

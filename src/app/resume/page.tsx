@@ -53,7 +53,7 @@ export default function ResumePage() {
   const downloadResume = () => {
     // Create a link element and trigger download
     const link = document.createElement("a");
-    link.href = "/resume.pdf"; // This will point to your PDF file in the public folder
+    link.href = "/Mubashir_Tanwar_Resume.pdf"; // This will point to your PDF file in the public folder
     link.download = `${resumeData.personal.name.replace(
       /\s+/g,
       "_"

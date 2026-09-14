@@ -7,6 +7,7 @@
 % You can merge both of these into a single line, if you do not have a website.
 \address{
 \href{tel:+918828351676}{+91 8828351676} -
+\href{mailto:tanwar0210@gmail.com}{tanwar0210@gmail.com} -
 \href{https://tanwar.vercel.app}{Website} -
 \href{https://www.linkedin.com/in/mubashir-tanwar/}{LinkedIn} -
 \href{https://github.com/MubashirTanwar}{GitHub}
@@ -47,13 +48,13 @@
 \begin{rSection}{EXPERIENCE}
 
 \experience{SDE-1}{\href{https://pranaindia.com}{Prana (PranaIndia)}}{July 2025 -- Present}{Banglore}{
-    \item Built the customer-facing pranaindia.com (Next.js/TypeScript) and implemented \textbf{real-time chat and voice-call} consultations end-to-end \textbf{in-house} over WebSockets, replacing paid third-party APIs and sustaining \textbf{150+ concurrent chats at sub-200ms latency} with AES-GCM encrypted messaging.
+    \item Built the customer-facing pranaindia.com (Next.js/TypeScript) and the \textbf{real-time chat and voice-call} consultation service \textbf{from scratch}, buffering messages in \textbf{Redis} and \textbf{batch-flushing} them to the database, sustaining \textbf{150+ concurrent chats at sub-200ms latency} with AES-GCM encrypted messaging.
     \item Built a TypeScript/Express \textbf{microservices} backend, deployed on \textbf{AWS EC2 with auto-scaling}, ECR, and Amplify using \textbf{blue-green deployments}.
     \item Built an in-house \textbf{A/B testing and user-behaviour tracking library}, running \textbf{20+ experiments across 150,000+ weekly users} to drive strategic changes that lifted landing-to-consultation conversion \textbf{3x (2\% $\to$ 6\%)}.
     \item Shipped \textbf{office.pranaindia.com}, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows.
 }
 
-\experience{Software Developer Intern}{ORIM Advisors}{Jan 2025 -- Apr 2025}{Mumbai}{
+\experience{Software Developer Intern}{ORIM Advisors}{Jan 2025 -- May 2025}{Mumbai}{
     \item Built the front-end console for an internal cloud platform in \textbf{React/TypeScript}, using TanStack Query and Zustand for server- and client-state management.
     \item Led an in-house, \textbf{accessible component library} adopted across multiple internal services, cutting \textbf{{$\sim$}2 dev-days/week} of duplicated UI work.
     \item Contributed to the \textbf{system design} of core cloud infrastructure modelled on \textbf{S3, EC2, and RDS}.
@@ -85,8 +86,8 @@
 \project{CoWordle --- Real-time Multiplayer Wordle}{https://github.com/MubashirTanwar/CoWordle}{Next.js, Socket.IO, MongoDB}{
     Real-time multiplayer Wordle (\href{https://co-wordle.vercel.app/}{live}) where players in a room race on the same word over Socket.IO. The server validates guesses and holds the answer so clients can't cheat, and reconnects restore in-progress games. MongoDB stores rooms, rounds, and scores.
 }
-\project{Sudoku --- Solver / Generator}{https://github.com/MubashirTanwar/Sudoku}{C++}{ % TODO: confirm repo URL
-    Applied \textbf{Knuth's Dancing Links algorithm} to efficiently solve and generate Sudoku puzzles. Compared and optimized solving techniques including \textbf{backtracking} and 2D Boolean arrays, and enhanced performance with a \textbf{diagonal fill technique} for quicker grid generation.
+\project{Sudoku --- Solver / Generator}{https://github.com/MubashirTanwar/Sudoku}{C++}{
+    Benchmarked \textbf{backtracking} against \textbf{Knuth's Dancing Links} (Algorithm X over a 324-constraint exact-cover matrix). On a puzzle built to break backtracking, DLX visits \textbf{81 nodes vs 69 million} (\textbf{0.03ms vs 1.9s}). The generator seeds the diagonal boxes and uses DLX to guarantee every puzzle has a \textbf{unique solution}.
 }
 \project{Timetable Generation System (UCTP)}{https://github.com/MubashirTanwar/Timetable}{Python}{ % TODO: confirm repo URL
     Built a \textbf{Genetic Algorithm} solver for the University Course Timetabling Problem (UCTP), modeling room, instructor, and student-group clashes as hard constraints and preferences and gaps as soft, and tuning a penalty-based fitness function to converge on conflict-free schedules.
@@ -112,10 +113,10 @@ Bachelor of Engineering in Computer Science Engineering (AIML), CGPA: 8.0/10.0
 \begin{rSection}{SKILLS}
 \vspace{-2pt}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{4ex}} l @{\hspace{10ex}} >{\bfseries}l @{\hspace{4ex}} l @{}}
-Languages: & C, C++, Python, JavaScript, TypeScript, Golang  & Databases: & MongoDB, MySQL, Postgres \\
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{3ex}} l @{\hspace{4ex}} >{\bfseries}l @{\hspace{3ex}} l @{}}
+Languages: & C, C++, Python, JavaScript, TypeScript, Golang  & Databases: & MongoDB, MySQL, Postgres, Redis \\
 Frontend: & React.js, Next.js, Tailwind, Redux, Tanstack  & Libraries:  & Numpy, Pandas, OpenCV \\
-Backend: & Node.js, Express, FastAPI, Prisma    & DevOps: & AWS (EC2, S3, ECR,), Docker \\
+Backend: & Node.js, Express, FastAPI, Prisma    & DevOps: & AWS (EC2, S3, ECR), Docker \\
 Tools: & Git, Postman, Vercel, Notion    & & \\
 \end{tabular}\\
 \end{rSection}
