@@ -6,20 +6,26 @@ function Projects() {
   return (
     <div className="grid grid-cols-3  gap-4 pt-4">
       <div className="col-span-3  space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-4">
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          <div className="col-span-1">
+            <ProjectCard src="/projects/outpost/card.png" alt="Outpost" title="Outpost"
+              link="https://chess-outpost.vercel.app"
+              description="A self-hosted chess coach that replaces chess.com's paid game review. Two LangGraph agents, a Neo4j graph that keys every position by FEN, and Stockfish running in the browser so the whole review works with the backend switched off."
+            />
+          </div>
+          <div className="col-span-1">
             <ProjectCard src="/projects/bestfares/stock.png" alt="Bestfares365" title="Bestfares365" 
               link="https://bestfares365.com.au"
               description="Made as a part of my internship at FuzzyNodes, this is a complete flight booking website, with wallets, payment gateways, B2B and B2C features, with a custom CMS and CRM system."
             />
           </div>
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+          <div className="col-span-1">
             <ProjectCard src="/projects/prana/stock2.png" alt="Prana" title="Prana Astrology" 
               link="https://pranaindia.com"
               description="A complete astrology website with consulation booking, daily horoscope, and other astrology features. Built for renowned astrologer Pandit Chandrashekhar Sharma."
             />
           </div>
-          <div className="col-span-1 md:col-span-4 lg:col-span-1">
+          <div className="col-span-1">
             <ProjectCard src="/projects/cardagain/stock.png" alt="CardAgain" title="CardAgain" 
               link="https://cardagain.net"
               description="A pokemon card and bundle ecommerce website, built on top of my custom CMS and CRM template, including features subscription, referrals, grading, giveaways, and more."

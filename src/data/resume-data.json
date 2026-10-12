@@ -3,18 +3,30 @@
     "name": "MUBASHIR TANWAR",
     "location": "Mumbai",
     "links": [
-      { "label": "Website", "url": "https://www.mubashirtanwar.com" },
-      { "label": "Mail", "url": "mailto:tanwar0210@gmail.com" },
-      { "label": "GitHub", "url": "https://github.com/MubashirTanwar" },
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/mubashir-tanwar/" }
+      {
+        "label": "Website",
+        "url": "https://www.mubashirtanwar.com"
+      },
+      {
+        "label": "Mail",
+        "url": "mailto:tanwar0210@gmail.com"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/MubashirTanwar"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mubashir-tanwar/"
+      }
     ]
   },
   "skills": {
     "Languages": "C, C++, Python, JavaScript, TypeScript, Golang",
     "Frontend": "React.js, Next.js, Tailwind, Redux, Tanstack",
     "Backend": "Node.js, Express, FastAPI, Prisma",
-    "Databases": "MongoDB, MySQL, Postgres, Redis",
-    "Libraries": "Numpy, Pandas, OpenCV, Transformers",
+    "Databases": "MongoDB, MySQL, Postgres, Redis, Neo4j",
+    "Libraries": "LangGraph, LangChain, Numpy, Pandas, Transformers",
     "DevOps": "AWS (EC2, S3, ECR, Amplify), Docker",
     "Tools": "Git, Postman, Vercel, Notion"
   },
@@ -99,6 +111,18 @@
     }
   ],
   "projects": [
+    {
+      "title": "Outpost – Self-hosted chess coach",
+      "period": "Oct 2026",
+      "link": "https://chess-outpost.vercel.app",
+      "github": "https://github.com/MubashirTanwar/outpost",
+      "description": [
+        "Built two LangGraph agents: a day-review pipeline, and a coach that routes each question by intent and streams answers token by token over SSE using LangGraph's custom stream writer.",
+        "The engine and the graph supply every fact (eval swings, rating changes, recurring motifs); the LLM (Claude or Ollama) only writes the wording, so it cannot make up analysis.",
+        "Designed a Neo4j schema that keys every position by FEN, so the coach can find the same mistake across games and generate puzzles from it.",
+        "Wrote the browser's UCI client so a single Stockfish worker serves every view, which is what lets the whole game review run with the backend switched off."
+      ]
+    },
     {
       "title": "CoWordle – Real-time Multiplayer Wordle",
       "period": "Mar 2026",

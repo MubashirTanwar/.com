@@ -1,10 +1,14 @@
+%% Master resume - Mubashir Tanwar - compact-resume template (1 page, xelatex)
+%% Compile with: cd cv && xelatex -interaction=nonstopmode main_resume.tex
+%% resume.cls must sit next to this file.
+%% This is the general-purpose version. Copy it to main_<company>_<role>.tex to tailor.
+
 \documentclass{resume} % Use the custom resume.cls style
 
 \usepackage[left=0.2 in,top=0.2in,right=0.2 in,bottom=0.2in]{geometry} % Document margins
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\name{mubashir tanwar} % Your name
-% You can merge both of these into a single line, if you do not have a website.
+\name{Mubashir Tanwar} % Your name
 \address{
 \href{tel:+918828351676}{+91 8828351676} -
 \href{mailto:tanwar0210@gmail.com}{tanwar0210@gmail.com} -
@@ -38,7 +42,6 @@
     \vspace{-5pt}
 }
 
-
 \begin{document}
 
 %----------------------------------------------------------------------------------------
@@ -47,31 +50,27 @@
 
 \begin{rSection}{EXPERIENCE}
 
-\experience{SDE-1}{\href{https://pranaindia.com}{Prana (PranaIndia)}}{July 2025 -- Present}{Banglore}{
-    \item Built the customer-facing pranaindia.com (Next.js/TypeScript) and the \textbf{real-time chat and voice-call} consultation service \textbf{from scratch}, buffering messages in \textbf{Redis} and \textbf{batch-flushing} them to the database, sustaining \textbf{150+ concurrent chats at sub-200ms latency} with AES-GCM encrypted messaging.
-    \item Built a TypeScript/Express \textbf{microservices} backend, deployed on \textbf{AWS EC2 with auto-scaling}, ECR, and Amplify using \textbf{blue-green deployments}.
-    \item Built an in-house \textbf{A/B testing and user-behaviour tracking library}, running \textbf{20+ experiments across 150,000+ weekly users} to drive strategic changes that lifted landing-to-consultation conversion \textbf{3x (2\% $\to$ 6\%)}.
-    \item Shipped \textbf{office.pranaindia.com}, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows.
+\experience{SDE-1}{\href{https://pranaindia.com}{Prana (PranaIndia)}}{Jul 2025 - Present}{Bengaluru}{
+    \item Built the \textbf{real-time chat and voice-call} consultation service from scratch over \textbf{WebSockets}, replacing paid third-party APIs: messages are buffered in \textbf{Redis} and batch-flushed to the database, sustaining \textbf{150+ concurrent chats at sub-200ms latency} with AES-GCM encrypted messaging.
+    \item Built a \textbf{Node.js}/\textbf{TypeScript} (Express) \textbf{microservices} backend with \textbf{BullMQ} workers queuing notifications and background jobs, deployed on \textbf{AWS EC2 with auto-scaling}, ECR and Amplify using \textbf{blue-green deployments}.
+    \item Built an in-house \textbf{A/B testing and user-behaviour tracking library} (client-side event batching, server bulk-writes), running \textbf{20+ experiments across 150,000+ weekly users} that lifted landing-to-consultation conversion \textbf{4x (2\% $\to$ 8\%)}.
+    \item Built the customer-facing pranaindia.com (\textbf{Next.js}/TypeScript), the wallet system and office.pranaindia.com; worked on an \textbf{LLM}/\textbf{RAG} chatbot over users' birth-chart data.
 }
 
-\experience{Software Developer Intern}{ORIM Advisors}{Jan 2025 -- May 2025}{Mumbai}{
-    \item Built the front-end console for an internal cloud platform in \textbf{React/TypeScript}, using TanStack Query and Zustand for server- and client-state management.
-    \item Led an in-house, \textbf{accessible component library} adopted across multiple internal services, cutting \textbf{{$\sim$}2 dev-days/week} of duplicated UI work.
-    \item Contributed to the \textbf{system design} of core cloud infrastructure modelled on \textbf{S3, EC2, and RDS}.
-    \item Built \textbf{scraping pipelines}, internal utility APIs, and custom trading-data UIs used across company systems.
+\experience{Software Developer Intern}{ORIM Advisors}{Jan 2025 - Apr 2025}{Mumbai}{
+    \item Built \textbf{data-extraction pipelines}: scrapers feeding an \textbf{LLM question-answering step with RAG} that turned raw data into \textbf{structured output}, plus trading-data APIs and dashboards (\textbf{FastAPI}, Celery, \textbf{Postgres}).
+    \item Built the front-end console for an internal cloud platform in \textbf{React/TypeScript}/Tailwind, using \textbf{TanStack Query} and Zustand for server- and client-state management.
+    \item Led an in-house, \textbf{accessible component library} adopted across multiple internal services, cutting \textbf{$\sim$2 dev-days/week} of duplicated UI work.
 }
 
-\experience{Deep Learning Intern}{National Informatics Centre}{Jan 2024 -- Oct 2024}{Mumbai}{
-    \item Fine-tuned a \textbf{TrOCR Vision Encoder-Decoder} (Google ViT encoder + Marathi-BERT-v2 decoder) in PyTorch/Hugging Face to \textbf{83\% accuracy}, used to digitize handwritten Marathi government letters received by the office.
-    \item \textbf{Automated 90\%} of dataset labelling to build a self-curated corpus of \textbf{135,000+} line- and word-level image--text pairs.
-    \item Built a production \textbf{Django API} for PDF OCR with \textbf{Elasticsearch}-backed document deduplication, which passed a successful alpha test in the NIC Mumbai office.
+\experience{Deep Learning Intern}{National Informatics Centre}{Jan 2024 - Oct 2024}{Mumbai}{
+    \item \textbf{Document intelligence:} fine-tuned a \textbf{TrOCR Vision Encoder-Decoder} (ViT encoder + Marathi-BERT-v2 decoder) in PyTorch and Hugging Face to \textbf{83\% accuracy} on handwritten Marathi government letters.
+    \item \textbf{Automated 90\%} of labelling to build a \textbf{135,000+} sample corpus, and shipped a production \textbf{Django API} for PDF OCR with \textbf{Elasticsearch}-backed deduplication, which \textbf{passed alpha testing} in the NIC Mumbai office.
 }
 
-\experience{Full Stack Engineer}{\href{https://bestfares365.com.au}{Fuzzy Nodes}}{Feb 2024 -- Sept 2024}{Remote}{
-    \item Rebuilt the bestfares365 CRM and airline-booking platform on the \textbf{MERN stack}, integrating the \textbf{Amadeus API} for flight search, fares, and ticketing.
-    \item Implemented a \textbf{fare-search algorithm} layered on Amadeus that widened the search space across route and connection combinations and sorted candidates to \textbf{surface cheaper itineraries} than direct queries.
-    \item Built an \textbf{agent wallet} with transaction logs and a \textbf{dynamic-pricing engine} applying configurable markups per route, airline, and agent.
-    \item Replaced the company's legacy booking system with the new platform, adopted across both customer and travel-agent channels.
+\experience{Full Stack Developer}{\href{https://bestfares365.com.au}{FuzzyNodes}}{Feb 2024 - Sep 2024}{Remote}{
+    \item Rebuilt the bestfares365 CRM and airline-booking platform on the \textbf{MERN stack} with the \textbf{Amadeus API}, replacing the legacy system across customer and travel-agent channels.
+    \item Implemented a \textbf{fare-search algorithm} over route and connection combinations that \textbf{surfaces cheaper itineraries} than direct queries, plus an \textbf{agent wallet} and a per-route \textbf{dynamic-pricing engine}.
 }
 
 \end{rSection}
@@ -83,16 +82,15 @@
 \begin{rSection}{PROJECTS}
 \vspace{-12pt}
 
-\project{CoWordle --- Real-time Multiplayer Wordle}{https://github.com/MubashirTanwar/CoWordle}{Next.js, Socket.IO, MongoDB}{
-    Real-time multiplayer Wordle (\href{https://co-wordle.vercel.app/}{live}) where players in a room race on the same word over Socket.IO. The server validates guesses and holds the answer so clients can't cheat, and reconnects restore in-progress games. MongoDB stores rooms, rounds, and scores.
+\project{Outpost --- Self-hosted chess coach (\href{https://chess-outpost.vercel.app/}{live})}{https://github.com/MubashirTanwar/outpost}{Next.js, FastAPI, Neo4j, LangGraph}{
+    Built \textbf{two LangGraph agents}: a day-review pipeline, and a coach that \textbf{routes each question by intent} and \textbf{streams answers token by token over SSE} using LangGraph's custom stream writer. The \textbf{engine and the graph supply every fact} (eval swings, rating changes, recurring motifs); the LLM (Claude or Ollama) only writes the wording, so it \textbf{cannot make up analysis}. Designed a \textbf{Neo4j schema that keys every position by FEN}, so the coach can find the \textbf{same mistake across games} and generate puzzles from it. Wrote the browser's \textbf{UCI client} so a single \textbf{Stockfish worker} serves every view, which is what lets the whole \textbf{game review run with the backend switched off}.
 }
 \project{Sudoku --- Solver / Generator}{https://github.com/MubashirTanwar/Sudoku}{C++}{
-    Benchmarked \textbf{backtracking} against \textbf{Knuth's Dancing Links} (Algorithm X over a 324-constraint exact-cover matrix). On a puzzle built to break backtracking, DLX visits \textbf{81 nodes vs 69 million} (\textbf{0.03ms vs 1.9s}). The generator seeds the diagonal boxes and uses DLX to guarantee every puzzle has a \textbf{unique solution}.
+    Benchmarked \textbf{backtracking} against \textbf{Knuth's Dancing Links} (Algorithm X over a \textbf{324-constraint exact-cover matrix}). On a puzzle built to break backtracking, DLX visits \textbf{81 nodes vs 69 million} (\textbf{0.03ms vs 1.9s}); the generator uses DLX to \textbf{guarantee a unique solution}.
 }
-\project{Timetable Generation System (UCTP)}{https://github.com/MubashirTanwar/Timetable}{Python}{ % TODO: confirm repo URL
-    Built a \textbf{Genetic Algorithm} solver for the University Course Timetabling Problem (UCTP), modeling room, instructor, and student-group clashes as hard constraints and preferences and gaps as soft, and tuning a penalty-based fitness function to converge on conflict-free schedules.
+\project{Timetable Generator (UCTP)}{https://github.com/MubashirTanwar/Timetable}{Python}{
+    Genetic algorithm for the University Course Timetabling Problem: \textbf{weighted hard and soft constraint penalties}, mutation \textbf{aimed at the events causing clashes} and an adaptive rate to escape local optima, reaching \textbf{zero conflicts for 72 weekly lectures in $\sim$30s}.
 }
-
 
 \end{rSection}
 
@@ -102,7 +100,7 @@
 
 \begin{rSection}{Education}
 
-{\bf M.H. Saboo Siddik College of Engineering (MHSSCE), University of Mumbai} \hfill {2021 -- 2025}\\
+{\bf M.H. Saboo Siddik College of Engineering (MHSSCE), University of Mumbai} \hfill {2021 - 2025}\\
 Bachelor of Engineering in Computer Science Engineering (AIML), CGPA: 8.0/10.0
 
 \end{rSection}
@@ -114,29 +112,11 @@ Bachelor of Engineering in Computer Science Engineering (AIML), CGPA: 8.0/10.0
 \vspace{-2pt}
 
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{3ex}} l @{\hspace{4ex}} >{\bfseries}l @{\hspace{3ex}} l @{}}
-Languages: & C, C++, Python, JavaScript, TypeScript, Golang  & Databases: & MongoDB, MySQL, Postgres, Redis \\
-Frontend: & React.js, Next.js, Tailwind, Redux, Tanstack  & Libraries:  & Numpy, Pandas, OpenCV \\
-Backend: & Node.js, Express, FastAPI, Prisma    & DevOps: & AWS (EC2, S3, ECR), Docker \\
-Tools: & Git, Postman, Vercel, Notion    & & \\
+Languages: & TypeScript, JavaScript, Python, C++, Go  & Databases: & PostgreSQL, MongoDB, Redis, Neo4j \\
+Frontend: & React, Next.js, TanStack Query, Redux  & AI / LLM:  & RAG, LangGraph, LangChain \\
+Backend: & Node.js, Express, BullMQ, Socket.IO, FastAPI    & DevOps: & AWS (EC2, S3, ECR), Docker \\
+AI tooling: & Claude Code (daily agentic coding)    & Tools: & Git, Postman, Prisma, Vercel \\
 \end{tabular}\\
 \end{rSection}
-
-%----------------------------------------------------------------------------------------
-% ACHIEVEMENTS
-%----------------------------------------------------------------------------------------
-
-% No achievements were listed on your source resume, so this section is left commented
-% out to avoid fabricating any. Uncomment and fill in if you have achievements to add.
-%
-% \vspace{-9pt}
-% \begin{rSection}{Achievements}
-%
-% \begin{itemize}[leftmargin=*]
-%     \itemsep -7pt
-%     \item Your achievement here.
-% \end{itemize}
-%
-% \end{rSection}
-
 
 \end{document}
