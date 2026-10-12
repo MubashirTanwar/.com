@@ -8,7 +8,7 @@ function Projects() {
       <div className="col-span-3  space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div className="col-span-1">
-            <ProjectCard src="/projects/outpost/card.png" alt="Outpost" title="Outpost"
+            <ProjectCard src="/projects/outpost/card.jpg" alt="Outpost" title="Outpost"
               link="https://chess-outpost.vercel.app"
               description="A self-hosted chess coach that replaces chess.com's paid game review. Two LangGraph agents, a Neo4j graph that keys every position by FEN, and Stockfish running in the browser so the whole review works with the backend switched off."
             />
