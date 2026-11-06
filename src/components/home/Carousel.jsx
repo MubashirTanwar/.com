@@ -4,24 +4,29 @@ import React from "react";
 
 
 const row2 = [
-  'cp.png',
-  'go.png',
-  'python.png',
-  'javascript.png',
   'typescript.png',
+  'javascript.png',
+  'python.png',
+  'go.png',
   'u-react.png',
   'u-reactnext.png',
+  'tanstack-query.png',
   'u-tailwind.png',
   'u-uredux.png',
   'v-anodejs.png',
   'v-bexpress.png',
-  'v-django.png',
   'fastapi.png',
-  'v-mongodb.png',
-  'v-mysql.png',
+  'socketio.png',
+  'prisma.png',
   'v-postgresql.png',
+  'v-mongodb.png',
+  'redis.png',
+  'neo4j.png',
+  'langchain.png',
+  'claude.png',
   'docker.png',
-  'v-wnpm.png',
+  'aws.png',
+  'vercel.png',
 ]
 
 export default function StackHome() {
@@ -45,7 +50,7 @@ export default function StackHome() {
               >
                 <img
                   src={`/langs/${el}`}
-                  alt="langs logo"
+                  alt={el.replace(/\.png$/, "")}
                   className="object-contain w-full h-full rounded-lg object-center"
                 />
               </div>
@@ -59,7 +64,7 @@ export default function StackHome() {
               >
                 <img
                   src={`/langs/${el}`}
-                  alt="company logo"
+                  alt=""
                   className="object-contain w-full h-full rounded-lg object-center"
                 />
               </div>

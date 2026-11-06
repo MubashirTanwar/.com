@@ -22,13 +22,14 @@
     ]
   },
   "skills": {
-    "Languages": "C, C++, Python, JavaScript, TypeScript, Golang",
-    "Frontend": "React.js, Next.js, Tailwind, Redux, Tanstack",
-    "Backend": "Node.js, Express, FastAPI, Prisma",
-    "Databases": "MongoDB, MySQL, Postgres, Redis, Neo4j",
-    "Libraries": "LangGraph, LangChain, Numpy, Pandas, Transformers",
+    "Languages": "TypeScript, JavaScript, Python, C++, Go",
+    "Frontend": "React, Next.js, TanStack Query, Redux, Tailwind",
+    "Backend": "Node.js, Express, BullMQ, Socket.IO, FastAPI",
+    "Databases": "PostgreSQL, MongoDB, Redis, Neo4j",
+    "AI / LLM": "RAG, LangGraph, LangChain",
+    "AI tooling": "Claude Code (daily agentic coding)",
     "DevOps": "AWS (EC2, S3, ECR, Amplify), Docker",
-    "Tools": "Git, Postman, Vercel, Notion"
+    "Tools": "Git, Postman, Prisma, Vercel"
   },
   "experience": [
     {
