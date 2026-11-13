@@ -18,9 +18,28 @@ const quicksand = localFont({
 });
 
 
+const description =
+  "Software engineer (SDE-1 at Prana). Real-time systems, LangGraph agents, Neo4j graphs, and Outpost, a chess coach that's a cat.";
+
 export const metadata: Metadata = {
-  title: "Mubashir Tanwar",
-  description: "Web Developer, Freelancer, Currently Learning Deep Learning",
+  metadataBase: new URL("https://www.mubashirtanwar.com"),
+  title: { default: "Mubashir Tanwar", template: "%s · Mubashir Tanwar" },
+  description,
+  authors: [{ name: "Mubashir Tanwar", url: "https://www.mubashirtanwar.com" }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Mubashir Tanwar",
+    title: "Mubashir Tanwar · Software Engineer",
+    description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mubashir Tanwar · Software Engineer",
+    description,
+  },
 };
 
 export default function RootLayout({
