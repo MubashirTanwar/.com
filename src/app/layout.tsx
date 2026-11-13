@@ -22,10 +22,10 @@ const description =
   "Software engineer (SDE-1 at Prana). Real-time systems, LangGraph agents, Neo4j graphs, and Outpost, a chess coach that's a cat.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.mubashirtanwar.com"),
+  metadataBase: new URL("https://tanwar.vercel.app"),
   title: { default: "Mubashir Tanwar", template: "%s · Mubashir Tanwar" },
   description,
-  authors: [{ name: "Mubashir Tanwar", url: "https://www.mubashirtanwar.com" }],
+  authors: [{ name: "Mubashir Tanwar", url: "https://tanwar.vercel.app" }],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
