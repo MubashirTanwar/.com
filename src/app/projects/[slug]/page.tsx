@@ -19,12 +19,13 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const p = getProject(params.slug);
   if (!p) return {};
   const title = `${p.title} · ${p.kind}`;
+  const image = p.desktop[0]?.src ?? p.card;
   return {
     title,
     description: p.summary,
     alternates: { canonical: `/projects/${p.slug}` },
-    openGraph: { url: `/projects/${p.slug}`, title, description: p.summary, images: [p.desktop[0].src] },
-    twitter: { title, description: p.summary, images: [p.desktop[0].src] },
+    openGraph: { url: `/projects/${p.slug}`, title, description: p.summary, images: [image] },
+    twitter: { title, description: p.summary, images: [image] },
   };
 }
 
@@ -89,7 +90,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        <Gallery desktop={p.desktop} mobile={p.mobile} />
+        {p.desktop.length + p.mobile.length > 0 ? (
+          <Gallery desktop={p.desktop} mobile={p.mobile} />
+        ) : (
+          <div className={cn(card, "overflow-hidden")}>
+            <Image src={p.card} alt={`${p.title}: ${p.kind}`} width={1536} height={1024} className="w-full h-auto max-h-[560px] object-cover" sizes="(min-width: 1024px) 1024px, 100vw" priority />
+          </div>
+        )}
 
         <div className={cn(card, "p-6 md:p-12")}>
           <div className="mx-auto max-w-2xl space-y-10">

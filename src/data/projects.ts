@@ -15,6 +15,7 @@ export type Project = {
   link?: string;
   linkLabel?: string;
   github?: string;
+  /** Leave empty to hide the screenshots section. */
   desktop: Shot[];
   mobile: Shot[];
   sections: { heading: string; body?: string; points?: string[] }[];
@@ -91,14 +92,8 @@ export const projects: Project[] = [
     timeline: "2026",
     link: "https://co-wordle.vercel.app",
     linkLabel: "Play CoWordle",
-    desktop: shots("cowordle", "desktop", [
-      "Solo drill mid-game with the on-screen keyboard",
-      "Room settings: time per round, rounds, classic or hard mode",
-    ]),
-    mobile: shots("cowordle", "mobile", [
-      "Solo drill on mobile",
-      "Room settings on mobile",
-    ]),
+    desktop: [],
+    mobile: [],
     sections: [
       {
         heading: "Problem",
@@ -130,14 +125,8 @@ export const projects: Project[] = [
     timeline: "Jul 2025 – Present",
     link: "https://pranaindia.com",
     linkLabel: "Visit pranaindia.com",
-    desktop: shots("prana", "desktop", [
-      "Prana home with chat and call entry points",
-      "Free horoscope picker",
-    ]),
-    mobile: shots("prana", "mobile", [
-      "Prana home on mobile",
-      "Free horoscope picker on mobile",
-    ]),
+    desktop: [],
+    mobile: [],
     sections: [
       {
         heading: "Real-time consultations",
@@ -171,12 +160,8 @@ export const projects: Project[] = [
     timeline: "Feb 2024 – Sep 2024",
     link: "https://bestfares365.com.au",
     linkLabel: "Visit bestfares365",
-    desktop: shots("bestfares", "desktop", [
-      "Flight search on the Bestfares365 home page",
-    ]),
-    mobile: shots("bestfares", "mobile", [
-      "Flight search on mobile",
-    ]),
+    desktop: [],
+    mobile: [],
     sections: [
       {
         heading: "Search that finds cheaper fares",

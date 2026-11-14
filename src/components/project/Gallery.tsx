@@ -42,7 +42,7 @@ function PhoneFrame({ shot, onClick }: { shot: Shot; onClick?: () => void }) {
 }
 
 export function Gallery({ desktop, mobile }: { desktop: Shot[]; mobile: Shot[] }) {
-  const [view, setView] = useState<View>("desktop");
+  const [view, setView] = useState<View>(desktop.length ? "desktop" : "mobile");
   const [open, setOpen] = useState<{ view: View; index: number } | null>(null);
   const list = open ? (open.view === "desktop" ? desktop : mobile) : [];
 
@@ -76,7 +76,7 @@ export function Gallery({ desktop, mobile }: { desktop: Shot[]; mobile: Shot[] }
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <h2 className={cn("text-2xl", heading)}>Screenshots</h2>
         <div role="tablist" className="flex rounded-full border border-[#d9dbde] dark:border-[#242424] p-1 bg-[#f4f5f6] dark:bg-black">
-          {tabs.map(({ id, label, Icon }) => (
+          {tabs.filter(({ id }) => (id === "desktop" ? desktop : mobile).length > 0).map(({ id, label, Icon }) => (
             <button
               key={id}
               role="tab"
