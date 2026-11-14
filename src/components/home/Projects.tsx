@@ -6,6 +6,7 @@ import { lifeLabel, lifeSocials, site } from "@/data/site";
 import { SocialIcon } from "@/components/shell/SocialIcon";
 import ExperienceTimeline from "./Experience";
 import { GitHubActivity } from "./GitHubActivity";
+import { OffTheClock } from "./OffTheClock";
 
 function ProjectCard({ slug, title, kind, card, summary }: (typeof projects)[number]) {
   return (
@@ -91,6 +92,7 @@ export default function Projects() {
         ))}
         <NowCard />
       </section>
+      <OffTheClock />
       <GitHubActivity />
       <ExperienceCard />
     </div>
