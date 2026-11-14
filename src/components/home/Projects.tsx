@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
-import { site } from "@/data/site";
+import { lifeLabel, lifeSocials, site } from "@/data/site";
+import { SocialIcon } from "@/components/shell/SocialIcon";
 import ExperienceTimeline from "./Experience";
 import { GitHubActivity } from "./GitHubActivity";
 
@@ -49,9 +50,23 @@ function NowCard() {
         {site.now.label}
       </p>
       <p className="mt-4 text-2xl font-light leading-snug text-[#1f1f1f] dark:text-[#cccccc]">{site.now.text}</p>
-      <p className="mt-auto text-sm text-stone-500">
-        Press <kbd className="rounded border border-[#d9dbde] dark:border-[#333] px-1">⌘K</kbd> to jump anywhere.
-      </p>
+      {lifeSocials.length > 0 && (
+        <div className="mt-auto flex flex-wrap gap-2 pt-4">
+          {lifeSocials.map((s) => (
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${lifeLabel(s)} on ${s.name}`}
+              className="inline-flex items-center gap-2 rounded-full border border-[#d9dbde] dark:border-[#2a2a2a] px-3 py-1.5 text-sm text-[#1f1f1f] dark:text-[#cccccc] transition-colors hover:bg-[#f4f5f6] dark:hover:bg-[#1c1c1c]"
+            >
+              <SocialIcon icon={s.icon} className="h-4 w-4" />
+              {lifeLabel(s)}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

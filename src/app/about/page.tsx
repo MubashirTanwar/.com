@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import resumeData from "@/data/resume-data.json";
-import { activeSocials, site, socials } from "@/data/site";
+import { lifeLabel, lifeSocials, site, workSocials } from "@/data/site";
 import { CloseButton } from "@/components/shell/CloseButton";
 import { SocialIcon } from "@/components/shell/SocialIcon";
 import { card, eyebrow, heading } from "@/components/shell/styles";
@@ -46,8 +46,6 @@ const years = (p: string) => {
 
 export default function AboutPage() {
   const edu = resumeData.education[0];
-  const offClock = socials.filter((s) => s.icon === "goodreads" || s.icon === "letterboxd");
-  const offClockLive = offClock.filter((s) => s.url);
 
   return (
     <div className="pb-6">
@@ -130,9 +128,9 @@ export default function AboutPage() {
             </section>
             <section className={cn(card, "p-6")}>
               <h2 className={eyebrow}>Off the clock</h2>
-              {offClockLive.length > 0 ? (
+              {lifeSocials.length > 0 ? (
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {offClockLive.map((s) => (
+                  {lifeSocials.map((s) => (
                     <a
                       key={s.name}
                       href={s.url}
@@ -141,7 +139,7 @@ export default function AboutPage() {
                       className="inline-flex items-center gap-2 rounded-full border border-[#d9dbde] dark:border-[#2a2a2a] px-3 py-1.5 text-sm text-[#1f1f1f] dark:text-[#cccccc] hover:bg-[#f4f5f6] dark:hover:bg-[#1c1c1c]"
                     >
                       <SocialIcon icon={s.icon} className="h-4 w-4" />
-                      {s.icon === "goodreads" ? "What I'm reading" : "What I'm watching"}
+                      {lifeLabel(s)}
                     </a>
                   ))}
                 </div>
@@ -149,8 +147,8 @@ export default function AboutPage() {
                 <p className={cn("mt-3", heading)}>Chess, books and films.</p>
               )}
               <div className="mt-4 flex gap-3 text-stone-500">
-                {activeSocials
-                  .filter((s) => s.icon === "github" || s.icon === "linkedin")
+                {workSocials
+                  .filter((s) => s.external)
                   .map((s) => (
                     <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.name} className="hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
                       <SocialIcon icon={s.icon} className="h-5 w-5" />

@@ -20,6 +20,19 @@ function Goodreads({ className }: { className?: string }) {
   );
 }
 
+function Spotify({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="10" fill="#1ED760" />
+      <g fill="none" stroke="#0b0b0b" strokeLinecap="round">
+        <path d="M6.5 9.2c3.7-1.1 7.6-.8 11 1" strokeWidth="1.8" />
+        <path d="M7.2 12.4c3-.8 6-.5 8.7.9" strokeWidth="1.5" />
+        <path d="M7.8 15.3c2.3-.6 4.6-.4 6.6.7" strokeWidth="1.3" />
+      </g>
+    </svg>
+  );
+}
+
 export function SocialIcon({ icon, className = "h-6 w-6" }: { icon: Social["icon"]; className?: string }) {
   switch (icon) {
     case "github":
@@ -34,5 +47,7 @@ export function SocialIcon({ icon, className = "h-6 w-6" }: { icon: Social["icon
       return <Goodreads className={className} />;
     case "letterboxd":
       return <Letterboxd className={className} />;
+    case "spotify":
+      return <Spotify className={className} />;
   }
 }

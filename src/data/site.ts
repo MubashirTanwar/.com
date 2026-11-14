@@ -18,8 +18,10 @@ export type Social = {
   name: string;
   /** Leave empty to hide the tile until you have a URL. */
   url: string;
-  icon: "github" | "linkedin" | "mail" | "resume" | "goodreads" | "letterboxd";
+  icon: "github" | "linkedin" | "mail" | "resume" | "goodreads" | "letterboxd" | "spotify";
   external?: boolean;
+  /** "life" profiles (books, films, music) show on the Now card and About page, not the links grid. */
+  life?: boolean;
 };
 
 export const socials: Social[] = [
@@ -27,9 +29,13 @@ export const socials: Social[] = [
   { name: "LinkedIn", url: "https://www.linkedin.com/in/mubashir-tanwar/", icon: "linkedin", external: true },
   { name: "Email", url: `mailto:${site.email}`, icon: "mail" },
   { name: "Resume", url: "/resume", icon: "resume" },
-  // TODO: fill in your profile URLs; tiles stay hidden while these are empty.
-  { name: "Goodreads", url: "", icon: "goodreads", external: true },
-  { name: "Letterboxd", url: "", icon: "letterboxd", external: true },
+  { name: "Goodreads", url: "https://www.goodreads.com/user/show/188130437-mubashir", icon: "goodreads", external: true, life: true },
+  { name: "Letterboxd", url: "https://letterboxd.com/electric_trash/", icon: "letterboxd", external: true, life: true },
+  { name: "Spotify", url: "https://open.spotify.com/user/h49gekebhda81ajlas5s0ctgt", icon: "spotify", external: true, life: true },
 ];
 
 export const activeSocials = socials.filter((s) => s.url);
+export const workSocials = activeSocials.filter((s) => !s.life);
+export const lifeSocials = activeSocials.filter((s) => s.life);
+export const lifeLabel = (s: Social) =>
+  s.icon === "goodreads" ? "Reading" : s.icon === "letterboxd" ? "Watching" : s.icon === "spotify" ? "Listening" : s.name;

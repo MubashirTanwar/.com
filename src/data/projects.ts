@@ -94,11 +94,9 @@ export const projects: Project[] = [
     desktop: shots("cowordle", "desktop", [
       "Solo drill mid-game with the on-screen keyboard",
       "Room settings: time per round, rounds, classic or hard mode",
-      "CoWordle lobby",
     ]),
     mobile: shots("cowordle", "mobile", [
       "Solo drill on mobile",
-      "Lobby on mobile",
       "Room settings on mobile",
     ]),
     sections: [
@@ -135,12 +133,10 @@ export const projects: Project[] = [
     desktop: shots("prana", "desktop", [
       "Prana home with chat and call entry points",
       "Free horoscope picker",
-      "About Prana",
     ]),
     mobile: shots("prana", "mobile", [
       "Prana home on mobile",
       "Free horoscope picker on mobile",
-      "About Prana on mobile",
     ]),
     sections: [
       {
@@ -177,13 +173,9 @@ export const projects: Project[] = [
     linkLabel: "Visit bestfares365",
     desktop: shots("bestfares", "desktop", [
       "Flight search on the Bestfares365 home page",
-      "Visa assistance flow",
-      "Travel agent registration",
     ]),
     mobile: shots("bestfares", "mobile", [
       "Flight search on mobile",
-      "Visa assistance on mobile",
-      "Agent registration on mobile",
     ]),
     sections: [
       {

@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { activeSocials } from "@/data/site";
+import { workSocials } from "@/data/site";
 import { SocialIcon } from "@/components/shell/SocialIcon";
 import { cn } from "@/lib/utils";
 
-/** Icon tiles beside the stack card. Goodreads/Letterboxd appear once their URLs are set in src/data/site.ts. */
+/** Icon tiles beside the stack card. Book/film/music profiles live on the Now card instead. */
 export default function Links() {
-  const wide = activeSocials.length > 4;
+  const wide = workSocials.length > 4;
   return (
     <nav aria-label="Profiles" className={cn("grid gap-4 lg:col-span-1", wide ? "grid-cols-3" : "grid-cols-4 lg:grid-cols-2")}>
-      {activeSocials.map((s) => (
+      {workSocials.map((s) => (
         <Link
           key={s.name}
           href={s.url}
