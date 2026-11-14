@@ -159,7 +159,14 @@ export const projects: Project[] = [
     link: "https://pranaindia.com",
     linkLabel: "Visit pranaindia.com",
     desktop: [],
-    mobile: shots("prana", "mobile", ["A chat consultation in the Prana app"]),
+    mobile: shots("prana", "mobile", [
+      "Start: pick what's on your mind",
+      "Astrologers, filtered by concern",
+      "Astrologer profile with ratings, consultations and session pricing",
+      "A live chat consultation with session timer and per-minute rate",
+      "A voice call, connected through Exotel",
+      "Chat history after a session ends",
+    ]),
     sections: [
       {
         heading: "Real-time chat and voice, built in-house",
