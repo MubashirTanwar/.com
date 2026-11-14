@@ -102,8 +102,18 @@ export const projects: Project[] = [
     link: "https://co-wordle.vercel.app",
     linkLabel: "Play CoWordle",
     github: "https://github.com/MubashirTanwar/CoWordle",
-    desktop: [],
-    mobile: [],
+    desktop: shots("cowordle", "desktop", [
+      "Lobby: room code, three players, and the host's round settings",
+      "Mid-race: your board, with everyone else's progress as coloured rows",
+      "Round 1 of 2 complete: the word, and points for each player",
+      "Game over: final standings and the per-round breakdown",
+    ]),
+    mobile: shots("cowordle", "mobile", [
+      "Joining a room on mobile",
+      "Racing on mobile, with a live \"solved it\" toast",
+      "Round results on mobile",
+      "Final scores on mobile",
+    ]),
     sections: [
       {
         heading: "Problem",
