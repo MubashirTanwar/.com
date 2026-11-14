@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Download } from "lucide-react";
 import resumeData from "@/data/resume-data.json";
 import { Badge } from "@/components/home/Experience";
+import { CloseButton } from "@/components/shell/CloseButton";
 
 const resumeSections = [
   { id: "header", label: "Contact" },
@@ -64,8 +65,8 @@ export default function ResumePage() {
   };
 
   return (
-    <div className="p-3 md:p-5 bg-[#f4f5f6] dark:bg-black font-quicksand">
-      <div className="bg-[#f4f5f6] dark:bg-black p-3 md:p-5 select-none border-[#d9dbde] dark:border-[#242424] border-2 rounded-3xl">
+    <div>
+      <CloseButton />
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-5 gap-0">
           {/* Left Sidebar - Navigation */}
           <div className="col-span-1  rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] md:col-span-2 lg:col-span-1">
@@ -197,7 +198,7 @@ export default function ResumePage() {
                   WORK EXPERIENCE
                 </h2>
                 <div className="space-y-8">
-                  {resumeData.experience.map((job, index) => (
+                  {resumeData.experience.filter((job) => (job as { onResume?: boolean }).onResume !== false).map((job, index) => (
                     <div key={index}>
                       <div className="flex justify-between items-start mb-2">
                         <div>
@@ -357,7 +358,6 @@ export default function ResumePage() {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

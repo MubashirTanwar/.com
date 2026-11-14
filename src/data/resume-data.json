@@ -41,7 +41,19 @@
         "Built a TypeScript/Express microservices backend, deployed on AWS EC2 with auto-scaling, ECR, and Amplify using blue-green deployments.",
         "Built an in-house A/B testing and user-behaviour tracking library, running 10+ experiments across 150,000+ weekly users to drive changes that lifted landing-to-consultation conversion 3x (2% to 6%).",
         "Shipped office.pranaindia.com, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows."
-      ]
+      ],
+      "skills": [
+        "Next.js",
+        "TypeScript",
+        "Express",
+        "WebSockets",
+        "Redis",
+        "AWS",
+        "Docker",
+        "MongoDB"
+      ],
+      "link": "https://pranaindia.com",
+      "project": "prana"
     },
     {
       "title": "SOFTWARE DEVELOPER INTERN",
@@ -52,6 +64,18 @@
         "Led an in-house, accessible component library adopted across multiple internal services, cutting ~2 dev-days/week of duplicated UI work.",
         "Contributed to the system design of core cloud infrastructure modelled on S3, EC2, and RDS.",
         "Built scraping pipelines, internal utility APIs, and custom trading-data UIs used across company systems."
+      ],
+      "skills": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "TanStack",
+        "Zustand",
+        "Node.js",
+        "FastAPI",
+        "Postgres",
+        "Docker",
+        "Python"
       ]
     },
     {
@@ -62,7 +86,16 @@
         "Fine-tuned a TrOCR Vision Encoder-Decoder (Google ViT encoder + Marathi-BERT-v2 decoder) in PyTorch/Hugging Face to 83% accuracy, used to digitize handwritten Marathi government letters received by the office.",
         "Automated 90% of dataset labelling to build a self-curated corpus of 135,000+ line- and word-level image-text pairs.",
         "Built a production Django API for PDF OCR with Elasticsearch-backed document deduplication, which passed a successful alpha test in the NIC Mumbai office."
-      ]
+      ],
+      "skills": [
+        "Python",
+        "Django",
+        "Postgres",
+        "Elasticsearch",
+        "TrOCR",
+        "Transformers"
+      ],
+      "github": "https://github.com/MubashirTanwar/TrOCR"
     },
     {
       "title": "FULL STACK ENGINEER",
@@ -73,6 +106,32 @@
         "Implemented a fare-search algorithm layered on Amadeus that widened the search space across route and connection combinations and sorted candidates to surface cheaper itineraries than direct queries.",
         "Built an agent wallet with transaction logs and a dynamic-pricing engine applying configurable markups per route, airline, and agent.",
         "Replaced the company's legacy booking system with the new platform, adopted across both customer and travel-agent channels."
+      ],
+      "skills": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Amadeus API"
+      ],
+      "link": "https://bestfares365.com.au/",
+      "project": "bestfares365"
+    },
+    {
+      "title": "PROJECT INTERN",
+      "company": "National Informatics Centre, Mumbai",
+      "period": "Jun'23 - Aug'23",
+      "onResume": false,
+      "responsibilities": [
+        "Led website development and CMS management for government agencies using the S3waaS platform.",
+        "Designed and developed 3 websites for the Ministry of Food, the Home Ministry and the Mumbai Police Department.",
+        "Applied web standards and best practices for accessibility, SEO, and performance."
+      ],
+      "skills": [
+        "HTML",
+        "Bootstrap",
+        "CMS",
+        "S3waaS"
       ]
     }
   ],

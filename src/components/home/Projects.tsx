@@ -1,108 +1,83 @@
-// Projects.js
-import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/data/projects";
+import { site } from "@/data/site";
 import ExperienceTimeline from "./Experience";
+import { GitHubActivity } from "./GitHubActivity";
 
-function Projects() {
+function ProjectCard({ slug, title, kind, card, summary }: (typeof projects)[number]) {
   return (
-    <div className="grid grid-cols-3  gap-4 pt-4">
-      <div className="col-span-3  space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-          <div className="col-span-1">
-            <ProjectCard src="/projects/outpost/card.jpg" alt="Outpost" title="Outpost"
-              link="https://chess-outpost.vercel.app"
-              description="A self-hosted chess coach that replaces chess.com's paid game review. Two LangGraph agents, a Neo4j graph that keys every position by FEN, and Stockfish running in the browser so the whole review works with the backend switched off."
-            />
-          </div>
-          <div className="col-span-1">
-            <ProjectCard src="/projects/bestfares/stock.png" alt="Bestfares365" title="Bestfares365" 
-              link="https://bestfares365.com.au"
-              description="Made as a part of my internship at FuzzyNodes, this is a complete flight booking website, with wallets, payment gateways, B2B and B2C features, with a custom CMS and CRM system."
-            />
-          </div>
-          <div className="col-span-1">
-            <ProjectCard src="/projects/prana/stock2.png" alt="Prana" title="Prana Astrology" 
-              link="https://pranaindia.com"
-              description="A complete astrology website with consulation booking, daily horoscope, and other astrology features. Built for renowned astrologer Pandit Chandrashekhar Sharma."
-            />
-          </div>
-          <div className="col-span-1">
-            <ProjectCard src="/projects/cardagain/stock.png" alt="CardAgain" title="CardAgain" 
-              link="https://cardagain.net"
-              description="A pokemon card and bundle ecommerce website, built on top of my custom CMS and CRM template, including features subscription, referrals, grading, giveaways, and more."
-            />
-          </div>
-        </div>
-        <ExperienceCard />
+    <Link
+      href={`/projects/${slug}`}
+      className="relative block group border border-[#d9dbde] dark:border-[#242424] rounded-3xl overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-400"
+    >
+      <Image
+        src={card}
+        alt={`${title}: ${kind}`}
+        width={960}
+        height={640}
+        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        className="rounded-3xl h-56 lg:h-72 w-full object-cover scale-110 group-hover:scale-100 group-focus-visible:scale-100 transition duration-300 ease-in-out"
+      />
+      {/* Title strip that's always visible on touch screens, where there's no hover. */}
+      <div className="md:hidden absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5 pt-12 text-white">
+        <p className="text-lg font-semibold">{title}</p>
+        <p className="text-sm text-zinc-300">{kind}</p>
       </div>
-    </div>
+      <div className="hidden md:flex absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition duration-300 ease-in-out bg-gradient-to-t from-black to-transparent text-white items-end">
+        <div className="p-6 space-y-3 text-xl translate-y-12 group-hover:translate-y-0 group-focus-visible:translate-y-0 transition duration-500 ease-in-out flex flex-col w-full">
+          <div className="font-semibold flex items-center justify-between w-full">
+            <h3 className="text-white">{title}</h3>
+            <ArrowUpRight className="text-white h-6 w-6 ml-auto group-hover:rotate-45 transition-transform duration-700 ease-in-out" />
+          </div>
+          <p className="text-zinc-400 text-sm">{summary}</p>
+        </div>
+      </div>
+    </Link>
   );
 }
 
-export default Projects;
-
-
-
-// BlogsCard.js
-function BlogsCard() {
+function NowCard() {
   return (
-    <div className="bg-white dark:bg-[#141414] h-72 border border-[#d9dbde] dark:border-[#242424] rounded-3xl p-6">
-      <h1 className="text-3xl text-[#1f1f1f] dark:text-[#cccccc]">Blogs</h1>
+    <div className="flex h-56 lg:h-72 flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6">
+      <p className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-500">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+        </span>
+        {site.now.label}
+      </p>
+      <p className="mt-4 text-2xl font-light leading-snug text-[#1f1f1f] dark:text-[#cccccc]">{site.now.text}</p>
+      <p className="mt-auto text-sm text-stone-500">
+        Press <kbd className="rounded border border-[#d9dbde] dark:border-[#333] px-1">⌘K</kbd> to jump anywhere.
+      </p>
     </div>
   );
 }
 
 function ExperienceCard() {
   return (
-    <div className="bg-white dark:bg-[#141414] border border-[#d9dbde] dark:border-[#242424] rounded-3xl p-3 md:p-6">
-      <h1 className="text-3xl text-[#1f1f1f] dark:text-[#cccccc] pt-6 pl-6 md:p-0">Experience</h1>
+    <section className="bg-white dark:bg-[#141414] border border-[#d9dbde] dark:border-[#242424] rounded-3xl p-3 md:p-6">
+      <h2 className="text-3xl text-[#1f1f1f] dark:text-[#cccccc] pt-6 pl-6 md:p-0">Experience</h2>
       <div className="space-y-4 mt-4">
         <ExperienceTimeline />
       </div>
-    </div>
+    </section>
   );
 }
 
-import { ArrowUpRight } from "lucide-react";
-
-function ProjectCard(
-    {
-        src,
-        alt,
-        title,
-        link,
-        description = "This is a project description that can be used to provide more context about the project and its features.",
-    }: {
-        src: string;
-        alt: string;
-        title: string;
-        description?: string;
-        link?: string;
-    }
-) {
+export default function Projects() {
   return (
-    <div className="relative group border border-[#d9dbde] dark:border-[#242424] rounded-3xl overflow-hidden" onClick={() => {
-      if (typeof window !== "undefined") {
-        window.open(link || "#", "_blank");
-      }
-    }}>
-      <img
-        src={src}
-        alt={alt}
-        className="rounded-3xl h-48 lg:h-72 w-full object-cover group-hover:scale-100 scale-110 transition duration-300 ease-in-out"
-      />
-      <div className="absolute inset-0 rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer bg-gradient-to-t from-black to-transparent -bottom-2 pt-30 text-white flex items-end">
-        <div className="p-6 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-12 pb-6 transform transition duration-500 ease-in-out flex flex-col w-full">
-          <div className="font-semibold flex items-center justify-between w-full">
-            <h1 className="text-white">{title}</h1>
-            <ArrowUpRight className="text-white h-6 w-6 ml-auto group-hover:rotate-45 transition-transform duration-700 ease-in-out" />
-          </div>
-          {description && (
-            <p className="text-zinc-400 text-sm">
-              {description}
-            </p>
-          )} 
-        </div>
-      </div>
+    <div className="pt-4 space-y-4">
+      <section aria-label="Projects" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {projects.map((p) => (
+          <ProjectCard key={p.slug} {...p} />
+        ))}
+        <NowCard />
+      </section>
+      <GitHubActivity />
+      <ExperienceCard />
     </div>
   );
 }

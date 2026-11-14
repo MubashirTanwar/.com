@@ -4,36 +4,15 @@ import { useEffect, useState } from "react";
 import { Classic } from "@theme-toggles/react";
 import "@theme-toggles/react/css/Classic.css";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 export function ThemeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialDarkMode = storedTheme === "dark" || (!storedTheme && prefersDark);
-
-    setIsDarkMode(initialDarkMode);
-
-    if (initialDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  // next-themes owns the class on <html> and the stored choice, so the command palette can toggle it too.
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isDarkMode = mounted && resolvedTheme === "dark";
+  const toggleTheme = () => setTheme(isDarkMode ? "light" : "dark");
 
   return (
     <button

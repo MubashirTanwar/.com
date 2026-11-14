@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-const row2 = [
+export const stackIcons = [
   'typescript.png',
   'javascript.png',
   'python.png',
@@ -31,21 +31,21 @@ const row2 = [
   'vercel.png',
 ]
 
-export default function StackHome() {
+export default function StackHome({ fluid = false }) {
   return (
-    <div className="flex items-center justify-center mb-6">
+    <div className={fluid ? "flex items-center justify-center" : "flex items-center justify-center mb-6"}>
 
 
         <div
           className="flex overflow-hidden mt-8 md:mt-9"
           style={{
-            width: "calc(100vw - 50px)",
+            width: fluid ? "100%" : "calc(100vw - 50px)",
             maskImage:
               "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
           }}
         >
           <div className="flex animate-marquee">
-            {row2.map((el, index) => (
+            {stackIcons.map((el, index) => (
               <div
                 key={index}
                 className="flex w-12 h-12 lg:w-20 lg:h-20 mx-4 bg-black/10 dark:bg-white/10 p-2 rounded-xl justify-center items-center px-1"
@@ -59,7 +59,7 @@ export default function StackHome() {
             ))}
           </div>
           <div className="flex animate-marquee">
-            {row2.map((el, index) => (
+            {stackIcons.map((el, index) => (
               <div
                 key={index}
                 className="flex w-12 h-12 lg:w-20 lg:h-20 mx-4 bg-black/10 dark:bg-white/10 p-2 rounded-xl justify-center items-center px-1"
