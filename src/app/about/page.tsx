@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const strengths = [
   {
     title: "Real-time systems",
-    body: "Chat, voice and multiplayer that stay fast under load: WebSockets and Socket.IO, Redis buffering, batched writes, encrypted messages.",
+    body: "Chat, voice and multiplayer that stay fast under load: WebSockets and Socket.IO, Redis buffering, batched writes to Postgres, encrypted messages.",
   },
   {
     title: "AI that can't make things up",
@@ -33,8 +33,12 @@ const strengths = [
     body: "Next.js and TypeScript, accessible component libraries, and A/B tests that actually move conversion.",
   },
   {
-    title: "Shipping end to end",
-    body: "From schema to deploy: Express microservices on AWS, Docker, blue-green releases.",
+    title: "Replacing paid vendors",
+    body: "At Prana I've replaced two paid services with in-house systems: the chat and voice APIs, and an astrology engine that now matches the vendor 100% at no running cost.",
+  },
+  {
+    title: "Payments and permissions",
+    body: "Wallets, credit ledgers, Razorpay and Stripe subscriptions, and strict multi-role access control, like the 9-role CRM I built to replace Salesforce.",
   },
 ];
 
@@ -55,9 +59,10 @@ export default function AboutPage() {
           <h1 className={cn("text-3xl pb-6 border-b border-[#d9dbde] dark:border-[#242424]", heading)}>What I&apos;m about</h1>
           <h2 className={cn(eyebrow, "mt-6")}>My story</h2>
           <p className={cn("mt-3 text-lg leading-relaxed", heading)}>
-            I&apos;m from Mumbai and studied Computer Engineering (AI &amp; ML) at M.H. Saboo Siddik College of Engineering. I started shipping
-            real products before I graduated: e-commerce stores for freelance clients, a rebuilt flight-booking platform for a Sydney travel
-            company, and an OCR model at the National Informatics Centre that reads handwritten Marathi letters.
+            I studied Computer Engineering (AI &amp; ML) at M.H. Saboo Siddik College of Engineering in Mumbai, and started shipping real
+            products before I graduated: a rebuilt flight-booking platform for an Australian travel company, an OCR model at the National
+            Informatics Centre that reads handwritten Marathi letters, and production apps for freelance clients, from a headless Shopify
+            store to a CRM that replaced Salesforce for an export-trading company.
           </p>
           <h2 className={cn(eyebrow, "mt-8")}>What I do now</h2>
           <p className={cn("mt-3 text-lg leading-relaxed", heading)}>
@@ -65,7 +70,8 @@ export default function AboutPage() {
             <Link href="/projects/prana" className="underline underline-offset-4 decoration-stone-400 hover:decoration-current">
               Prana
             </Link>
-            , where I built pranaindia.com and the real-time chat and voice consultations behind it. Outside work I build things like{" "}
+            {" "}in Bengaluru, where I built pranaindia.com, the real-time chat and voice consultations behind it, and an in-house astrology
+            engine that replaced a paid vendor. I also manage our interns. Outside work I build things like{" "}
             <Link href="/projects/outpost" className="underline underline-offset-4 decoration-stone-400 hover:decoration-current">
               Outpost
             </Link>

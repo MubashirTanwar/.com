@@ -3,9 +3,9 @@ export const site = {
   url: "https://tanwar.vercel.app",
   email: "tanwar0210@gmail.com",
   role: "SDE-1 at Prana",
-  location: "Mumbai",
+  location: "Bengaluru",
   intro:
-    "Software engineer, currently building real-time systems at Prana, based in Mumbai.",
+    "Software engineer, currently building real-time systems at Prana, based in Bengaluru.",
   now: {
     label: "Now",
     text: "Shipping chat and voice consults at Prana. Evenings: teaching a cat to coach chess in Outpost.",

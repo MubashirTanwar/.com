@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "MUBASHIR TANWAR",
-    "location": "Mumbai",
+    "location": "Bengaluru",
     "links": [
       {
         "label": "Website",
@@ -37,10 +37,11 @@
       "company": "Prana (PranaIndia), Bangalore",
       "period": "Jul'25 - Present",
       "responsibilities": [
-        "Built the customer-facing pranaindia.com (Next.js/TypeScript) and the real-time chat and voice-call consultation service from scratch, buffering messages in Redis and batch-flushing them to the database, sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
-        "Built a TypeScript/Express microservices backend, deployed on AWS EC2 with auto-scaling, ECR, and Amplify using blue-green deployments.",
-        "Built an in-house A/B testing and user-behaviour tracking library, running 10+ experiments across 150,000+ weekly users to drive changes that lifted landing-to-consultation conversion 3x (2% to 6%).",
-        "Shipped office.pranaindia.com, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows."
+        "Built the customer-facing pranaindia.com (Next.js/TypeScript) and the real-time chat and voice-call consultation service from scratch over WebSockets, replacing paid third-party APIs. Messages are buffered in Redis and batch-flushed to Postgres, sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
+        "Built an in-house astrology engine on Swiss Ephemeris (kundali, daily horoscope, planetary positions, charts), matched the paid vendor's output 100% and dropped its ~$300/month subscription.",
+        "Built an in-house A/B testing and user-behaviour tracking library, running 20+ experiments across 150,000+ weekly users; the resulting changes lifted landing-to-consultation conversion 4x (2% to 8%).",
+        "Shipped a RAG chatbot over users' kundali data to production (LangChain on OpenAI), and built the wallet system (top-ups, consultation payments, astrologer earnings) on Razorpay.",
+        "Built a TypeScript/Express microservices backend, deployed on AWS EC2 with auto-scaling, ECR, and Amplify using blue-green deployments. Manage the interns and ran knowledge transfer for the next SDE-1."
       ],
       "skills": [
         "Next.js",
@@ -48,9 +49,12 @@
         "Express",
         "WebSockets",
         "Redis",
+        "BullMQ",
+        "PostgreSQL",
+        "MongoDB",
+        "LangChain",
         "AWS",
-        "Docker",
-        "MongoDB"
+        "Docker"
       ],
       "link": "https://pranaindia.com",
       "project": "prana"
@@ -58,7 +62,7 @@
     {
       "title": "SOFTWARE DEVELOPER INTERN",
       "company": "ORIM Advisors, Mumbai",
-      "period": "Jan'25 - May'25",
+      "period": "Jan'25 - Apr'25",
       "responsibilities": [
         "Built the front-end console for an internal cloud platform in React/TypeScript, using TanStack Query and Zustand for server- and client-state management.",
         "Led an in-house, accessible component library adopted across multiple internal services, cutting ~2 dev-days/week of duplicated UI work.",
@@ -98,12 +102,12 @@
       "github": "https://github.com/MubashirTanwar/TrOCR"
     },
     {
-      "title": "FULL STACK ENGINEER",
-      "company": "Fuzzy Nodes, Sydney (Remote)",
+      "title": "FULL STACK DEVELOPER",
+      "company": "FuzzyNodes, Australia (Remote)",
       "period": "Feb'24 - Sept'24",
       "responsibilities": [
-        "Rebuilt the bestfares365 CRM and airline-booking platform on the MERN stack, integrating the Amadeus API for flight search, fares, and ticketing.",
-        "Implemented a fare-search algorithm layered on Amadeus that widened the search space across route and connection combinations and sorted candidates to surface cheaper itineraries than direct queries.",
+        "Rebuilt the bestfares365 CRM and airline-booking platform from the ground up on the MERN stack (customer site, agent portal and admin CRM), integrating the Amadeus API for flight search, fares, and ticketing.",
+        "Wrote a fare-search algorithm on top of Amadeus that surfaces cheaper itineraries than a direct Amadeus query returns.",
         "Built an agent wallet with transaction logs and a dynamic-pricing engine applying configurable markups per route, airline, and agent.",
         "Replaced the company's legacy booking system with the new platform, adopted across both customer and travel-agent channels."
       ],
@@ -116,23 +120,6 @@
       ],
       "link": "https://bestfares365.com.au/",
       "project": "bestfares365"
-    },
-    {
-      "title": "PROJECT INTERN",
-      "company": "National Informatics Centre, Mumbai",
-      "period": "Jun'23 - Aug'23",
-      "onResume": false,
-      "responsibilities": [
-        "Led website development and CMS management for government agencies using the S3waaS platform.",
-        "Designed and developed 3 websites for the Ministry of Food, the Home Ministry and the Mumbai Police Department.",
-        "Applied web standards and best practices for accessibility, SEO, and performance."
-      ],
-      "skills": [
-        "HTML",
-        "Bootstrap",
-        "CMS",
-        "S3waaS"
-      ]
     }
   ],
   "freelance": [
