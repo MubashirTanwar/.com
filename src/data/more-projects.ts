@@ -157,61 +157,44 @@ export const moreProjects: MiniProject[] = [
   {
     slug: "unilosa",
     title: "Unilosa CRM",
-    kind: "Technical co-founder · SaaS CRM",
+    kind: "Technical co-founder · CRM / ERP",
     year: "2026",
-    stat: { value: "68 models", label: "294 API routes, ~62k lines of TypeScript" },
+    stat: { value: "$1,000+/mo", label: "saved by replacing Salesforce and other third-party tools" },
     summary:
-      "A CRM that replaced Salesforce end to end for an India–Singapore export-trading company, now being sold to other trading companies.",
-    tags: ["Next.js", "TypeScript", "Express", "Prisma", "PostgreSQL", "Socket.IO", "Puppeteer", "AWS S3"],
+      "Designed and built a CRM with the client's stakeholders that runs an export-trading business end to end, from inventory to accounts, in one system.",
+    tags: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma", "Redis", "WebSockets", "Puppeteer", "AWS"],
     sections: [
       {
-        heading: "Why replace Salesforce",
-        body: "The company trades through two legal entities, one in India (INR) and one in Singapore (USD), and years of formula fields and manual workarounds had piled up in Salesforce. Sales couldn't see payment status, accounts exported to Word to make shipping documents, and nothing was scoped per entity.",
+        heading: "How it was built",
+        points: [
+          "Gathered requirements one-on-one with sales, documentation and accounts stakeholders, then mapped their Salesforce objects and workflows onto a new schema.",
+          "Owned it end to end: data model, REST API, front end, auth and deployment.",
+        ],
       },
       {
         heading: "Architecture",
         points: [
-          "Next.js App Router front end and a separate Express + TypeScript API, both on AWS Amplify, the API in Docker.",
-          "PostgreSQL through Prisma: 68 models covering orders, contacts, products, documents, bank entries, allocations, chat and roles.",
-          "NextAuth issues a JWT that the API reads from a cookie, so server-side fetches and browser calls share one session.",
-          "Socket.IO runs on the same HTTP server for chat; the handshake goes through the same JWT middleware.",
-          "Files live in S3 behind CloudFront.",
+          "Next.js front end and an Express + TypeScript REST API (294 routes), Dockerised on AWS Amplify.",
+          "PostgreSQL through Prisma with 68 models: orders, inventory, contacts, documents, bank entries and allocations.",
+          "JWT auth shared between the web app and the API; files on S3 behind CloudFront.",
         ],
       },
       {
-        heading: "Permissions per role and per entity",
+        heading: "Role-based access control",
         points: [
-          "9 roles, from Super Admin to Accounts Maker/Approver, each scoped to a legal entity: a sales exec in India never sees Singapore's pipeline.",
-          "Each role is a database row holding a JSON permission tree (opportunities, contacts, products, accounting, folders, tabs), with per-user folder overrides.",
-          "The auth middleware resolves the user's entity-scoped role on every request rather than trusting the role in the JWT, and one checkPerm(permissions, \"accounting.view\") helper gates the whole API.",
+          "9 roles scoped per legal entity (India and Singapore), each stored as a JSON permission tree.",
+          "Middleware resolves the user's entity-scoped permissions on every request; one checkPerm() guard covers the whole API.",
         ],
       },
       {
-        heading: "Export documents",
-        points: [
-          "15 document types (sales contracts, proforma and commercial invoices, packing lists, bills of lading, certificates of origin, purchase orders, credit/debit notes…), each an EJS template rendered to PDF.",
-          "One Puppeteer browser is started with the server and reused across requests, instead of launching Chromium per document.",
-          "Fonts are inlined as base64 before rendering, so PDFs never wait on a font CDN; drafts get a watermark stamped on every page with pdf-lib.",
-        ],
+        heading: "Real-time chat",
+        body: "Same design as Prana's consultation chat: messages go over WebSockets, are buffered in Redis and batch-flushed to Postgres, and the socket handshake is authenticated with the same JWT.",
       },
       {
-        heading: "Salesforce formulas, ported",
-        body: "18 Salesforce formula fields (net and gross weight, rounded net weight, bag count, unit price…) became one TypeScript module that runs live in the browser. It keeps the originals' edge cases: shared and dedicated containers, multi-product containers, MT/KG/LTR/KL conversions and rounding rules.",
-      },
-      {
-        heading: "Bank reconciliation",
+        heading: "Documents and accounting",
         points: [
-          "Imported bank entries are reconciled against one or more invoices through allocation records, or matched to an entry in another account as an internal transfer.",
-          "The dialog shows the unallocated amount live and only allows saving when it reaches exactly zero, never over-allocated.",
-        ],
-      },
-      {
-        heading: "Outcome",
-        points: [
-          "Live in 2026, replacing the Salesforce org entirely.",
-          "Export documents come straight from order data in one click: turnaround went from an afternoon to under a minute.",
-          "Reconciliation that meant cross-checking three spreadsheets now happens in one dialog.",
-          "The India and Singapore teams work in scoped views of one database, with no Salesforce profiles or sharing rules.",
+          "15 export document types rendered from order data to PDF (EJS + a long-lived Puppeteer instance): turnaround went from an afternoon to under a minute.",
+          "Bank reconciliation allocates each payment across invoices in one dialog, replacing three spreadsheets.",
         ],
       },
     ],
