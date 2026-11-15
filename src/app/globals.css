@@ -17,9 +17,6 @@
 }
 
 
-#mouse {
-  transition: .1s linear
-}
 @keyframes scrollX {
   from {
     transform: translateX(0);
@@ -31,6 +28,12 @@
 
 .animate-marquee {
   animation: scrollX 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
 .carousel-slide {
   display: flex;
@@ -110,4 +113,8 @@
 
   }
 
+}
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
 }

@@ -1,189 +1,108 @@
-import { DashboardIcon, DashIcon } from "@radix-ui/react-icons";
-import classNames from "classnames";
-import {
-  BriefcaseIcon,
-  GithubIcon,
-  ExternalLinkIcon,
-  CheckCircle,
-  Circle,
-  ArrowBigRight,
-} from "lucide-react";
+import Link from "next/link";
+import { ExternalLinkIcon, GithubIcon, ArrowUpRight } from "lucide-react";
+import resumeData from "@/data/resume-data.json";
 
-interface Experience {
+type Job = {
   title: string;
   company: string;
   period: string;
-  description: string[];
-  skills: string[];
-  githubLink?: string;
-  liveLink?: string;
-}
-// •	Developed a cloud provider interface using React, TypeScript, Tailwind, TanStack, Zustand for state management.
-// •	Led the creation of an in-house, accessible component library adopted across multiple services, reducing 2 dev days per week.
-// •	Contributed to the system design of core cloud infrastructure modelled after services like S3, EC2, and RDS.
-// •	Independently developed scraping pipelines, internal utility APIs, and custom UIs for trading data, used by company personnel and integrated into internal systems. 
+  responsibilities: string[];
+  skills?: string[];
+  link?: string;
+  github?: string;
+  project?: string;
+  /** One number that sums the role up, shown big on its card. */
+  highlight?: { value: string; label: string };
+};
 
+export const jobs = resumeData.experience as Job[];
 
-const experiences: Experience[] = [
-  {
-    title: "SDE-1",
-    company: "Prana (PranaIndia)",
-    period: "July 2025 - Present",
-    description: [
-      "Built the customer-facing pranaindia.com (Next.js/TypeScript) and the real-time chat and voice-call consultation service from scratch, buffering messages in Redis and batch-flushing them to the database, sustaining 150+ concurrent chats at sub-200ms latency with AES-GCM encrypted messaging.",
-      "Built a TypeScript/Express microservices backend, deployed on AWS EC2 with auto-scaling, ECR, and Amplify using blue-green deployments.",
-      "Built an in-house A/B testing and user-behaviour tracking library, running 10+ experiments across 150,000+ weekly users to drive changes that lifted landing-to-consultation conversion 3x (2% to 6%).",
-      "Shipped office.pranaindia.com, a dedicated portal for high-ticket clients, and streamlined existing consultation workflows.",
-    ],
-    skills: [
-      "Next.js",
-      "TypeScript",
-      "Express",
-      "WebSockets",
-      "Redis",
-      "AWS",
-      "Docker",
-      "MongoDB",
-    ],
-    liveLink: "https://pranaindia.com",
-  },
-  {
-    title: "Software Developer Intern",
-    company: "ORIM Advisors",
-    period: "Jan 2025 - May 2025",
-    description: [
-      "Built the front-end console for an internal cloud platform in React/TypeScript, using TanStack Query and Zustand for server- and client-state management.",
-      "Led an in-house, accessible component library adopted across multiple internal services, cutting ~2 dev-days/week of duplicated UI work.",
-      "Contributed to the system design of core cloud infrastructure modelled on S3, EC2, and RDS.",
-      "Built scraping pipelines, internal utility APIs, and custom trading-data UIs used across company systems.",
-    ],
-    skills: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "TanStack",
-      "Zustand",
-      "Node.js",
-      "FastAPI",
-      "Postgres",
-      "Docker",
-      "Python",
-    ],
-  },
-  {
-    title: "Deep Learning Intern",
-    company: "National Informatics Centre",
-    period: "Jan 2024 - Oct 2024",
-    description: [
-      "Fine-tuned a TrOCR Vision Encoder-Decoder (Google ViT encoder + Marathi-BERT-v2 decoder) in PyTorch/Hugging Face to 83% accuracy, used to digitize handwritten Marathi government letters received by the office.",
-      "Automated 90% of dataset labelling to build a self-curated corpus of 135,000+ line- and word-level image-text pairs.",
-      "Built a production Django API for PDF OCR with Elasticsearch-backed document deduplication, which passed a successful alpha test in the NIC Mumbai office.",
-    ],
-    skills: [
-      "Python",
-      "Django",
-      "Postgres",
-      "Elasticsearch",
-      "TrOCR",
-      "Transformers",
-    ],
-    githubLink: "https://github.com/MubashirTanwar/TrOCR", // Add link if available
-    liveLink: "", // Add link if available
-  },
-  {
-    title: "Full Stack Engineer",
-    company: "Fuzzy Nodes",
-    period: "Feb 2024 - Sept 2024",
-    description: [
-      "Rebuilt the bestfares365 CRM and airline-booking platform on the MERN stack, integrating the Amadeus API for flight search, fares, and ticketing.",
-      "Implemented a fare-search algorithm layered on Amadeus that widened the search space across route and connection combinations and sorted candidates to surface cheaper itineraries than direct queries.",
-      "Built an agent wallet with transaction logs and a dynamic-pricing engine applying configurable markups per route, airline, and agent.",
-      "Replaced the company's legacy booking system with the new platform, adopted across both customer and travel-agent channels.",
-    ],
+/** "SOFTWARE DEVELOPER INTERN" -> "Software Developer Intern"; keeps tokens like "SDE-1". */
+export const prettyTitle = (t: string) =>
+  t
+    .split(" ")
+    .map((w) => (/\d/.test(w) ? w : w.charAt(0) + w.slice(1).toLowerCase()))
+    .join(" ");
 
-    skills: ["React", "Node.js", "Express", "MongoDB", "Amadeus API"],
-    githubLink: "", // Add link if available
-    liveLink: "https://bestfares365.com.au/", // Add link if available
-  },
-  {
-    title: "Project Intern",
-    company: "National Informatics Centre",
-    period: "Jun 2023 - Aug 2023",
-    description: [
-      "Led website development and CMS management for government agencies using the S3waaS platform.",
-      "Designed and Developed 3 websites for the Ministry of Food, Home Ministry and Mumbai Police Department.",
-      "Learned and implemented various web standards and best practices for accessibility, SEO, and performance.",
-    ],
-    skills: ["HTML", "Bootstrap", "CMS", "S3waaS"],
-    githubLink: "", // Add link if available
-    liveLink: "", // Add link if available
-  },
-];
+const card = "flex flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6";
+const heading = "text-[#1f1f1f] dark:text-[#cccccc]";
 
-export default function ExperienceTimeline() {
+function Tags({ skills }: { skills?: string[] }) {
   return (
-    <div className="">
-      {experiences.map((exp, index) => (
-        <div
-          key={index}
-          className="relative hover:bg-[#f7f6f6] hover:dark:bg-[#121212]/70 p-5 md:p-8 md:px-12 rounded-3xl"
-        >
-          <div className="absolute left-0 md:left-4 top-0 ml-[3px] h-full   w-[2px] bg-gray-500" />
-          <div className="absolute left-0 md:left-4 top-10 w-2 h-2 rounded-full bg-purple-400" />
-          <div className="flex justify-between items-start mb-1">
-            <div className="text-2xl font-semibold text-[#1f1f1f] dark:text-[#cccccc]">{exp.title}</div>
-            <div className="flex space-x-2">
-              {exp.githubLink && (
-                <a
-                  href={exp.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1f1f1f] dark:text-[#cccccc]"
-                >
-                  <GithubIcon className="h-5 w-5" />
-                </a>
-              )}
-              {exp.liveLink && (
-                <a
-                  href={exp.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1f1f1f] dark:text-[#cccccc]"
-                >
-                  <ExternalLinkIcon className="h-5 w-5" />
-                </a>
-              )}
-            </div>
-          </div>
-          <div className="mb-2 text-lg text-[#1f1f1f] dark:text-[#cccccc]">
-            {exp.company} | {exp.period}
-          </div>
-          <ul className="space-y-3 mb-6">
-            {exp.description.map((desc, descIndex) => (
-              <li
-                key={descIndex}
-                className="flex items-start space-x-2 text-zinc-500 dark:text-zinc-400 200"
-              >
-                <span className="text-md font-semibold text-[#1f1f1f] dark:text-[#cccccc]"> - </span>
-                <span className="text-base sm:text-lg leading-tight">
-                  {desc}
-                </span>
-              </li>
-            ))}
-          </ul>
+    <div className="flex flex-wrap gap-1.5">
+      {skills?.map((s) => (
+        <span key={s} className="rounded-full bg-[#f4f5f6] dark:bg-[#1f1f1f] px-2.5 py-1 text-xs text-stone-600 dark:text-stone-400">
+          {s}
+        </span>
+      ))}
+    </div>
+  );
+}
 
-          <div className="flex flex-wrap gap-2">
-            {exp.skills.map((skill, skillIndex) => (
-              <Badge
-                key={skillIndex}
-                variant="secondary"
-                className="bg-zinc-200 dark:bg-zinc-700 text-zinc-500 dark:text-zinc-400 300"
-              >
-                {skill}
-              </Badge>
-            ))}
-          </div>
+function Links({ job }: { job: Job }) {
+  if (!job.project && !job.link && !job.github) return null;
+  return (
+    <div className="flex flex-wrap items-center gap-4 text-sm text-stone-500">
+      {job.project && (
+        <Link href={`/projects/${job.project}`} className="inline-flex items-center gap-1 hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
+          Case study <ArrowUpRight className="h-4 w-4" />
+        </Link>
+      )}
+      {job.link && (
+        <a href={job.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${job.company}`} className="hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
+          <ExternalLinkIcon className="h-4 w-4" />
+        </a>
+      )}
+      {job.github && (
+        <a href={job.github} target="_blank" rel="noopener noreferrer" aria-label={`${job.company} on GitHub`} className="hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
+          <GithubIcon className="h-4 w-4" />
+        </a>
+      )}
+    </div>
+  );
+}
+
+function JobCard({ job, featured }: { job: Job; featured?: boolean }) {
+  const company = job.company.split(",")[0];
+  return (
+    <article className={`${card} ${featured ? "md:col-span-3 lg:flex-row lg:gap-10" : ""}`}>
+      <div className={featured ? "lg:w-72 lg:shrink-0" : ""}>
+        <p className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-stone-500">
+          {featured && <span className="h-2 w-2 rounded-full bg-emerald-500" aria-label="Current role" />}
+          {job.period}
+        </p>
+        <h3 className={`mt-2 ${featured ? "text-3xl" : "text-xl"} ${heading}`}>{prettyTitle(job.title)}</h3>
+        <p className="text-stone-500">{company}</p>
+        {job.highlight && (
+          <>
+            <p className={`mt-5 font-light ${featured ? "text-6xl" : "text-4xl"} ${heading}`}>{job.highlight.value}</p>
+            <p className="mt-1 text-sm text-stone-500">{job.highlight.label}</p>
+          </>
+        )}
+      </div>
+      <div className={`mt-5 flex flex-1 flex-col ${featured ? "lg:mt-0" : ""}`}>
+        <ul className="space-y-2 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+          {(featured ? job.responsibilities : job.responsibilities.slice(0, 2)).map((r) => (
+            <li key={r}>{r}</li>
+          ))}
+        </ul>
+        <div className="mt-auto space-y-4 pt-5">
+          <Tags skills={featured ? job.skills : job.skills?.slice(0, 5)} />
+          <Links job={job} />
         </div>
+      </div>
+    </article>
+  );
+}
+
+/** Current role as a wide card, earlier roles beneath, each led by one number. */
+export default function ExperienceGrid() {
+  const [current, ...earlier] = jobs;
+  return (
+    <div className="grid gap-4 md:grid-cols-3">
+      <JobCard job={current} featured />
+      {earlier.map((j) => (
+        <JobCard key={j.title + j.period} job={j} />
       ))}
     </div>
   );
@@ -202,14 +121,5 @@ export function Badge({
     primary: "bg-gray-800 text-gray-700 dark:text-gray-300",
     secondary: "bg-gray-300 text-gray-800",
   };
-
-  return (
-    <span
-      className={`px-3 py-1.5 rounded-full text-sm ${
-        badgeVariants[variant] + " " + className
-      }`}
-    >
-      {children}
-    </span>
-  );
+  return <span className={`px-3 py-1.5 rounded-full text-sm ${badgeVariants[variant]} ${className}`}>{children}</span>;
 }

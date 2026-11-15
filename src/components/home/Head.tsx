@@ -1,51 +1,55 @@
-"use client";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { site } from "@/data/site";
+
+/** Two arrows that swap on hover, used on every card that opens a page. */
+export function ArrowBadge() {
+  return (
+    <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-[#d9dbde] dark:border-[#242424] transition-transform duration-300 ease-in-out group-hover:rotate-45">
+      <div className="absolute transition-transform duration-300 ease-in-out group-hover:translate-x-12 group-hover:-translate-y-12">
+        <ArrowUpRight className="h-6 w-6 text-[#1f1f1f] dark:text-[#cccccc]" />
+      </div>
+      <div className="absolute -translate-x-12 translate-y-12 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:translate-y-0">
+        <ArrowUpRight className="h-6 w-6 text-[#1f1f1f] dark:text-[#cccccc]" />
+      </div>
+    </div>
+  );
+}
 
 function Head() {
   return (
-    <div>
-      <div className="grid grid-cols-1 gap-4 bg-[#f4f5f6] dark:bg-black  lg:grid-cols-3">
-        <div className="col-span-1 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] md:col-span-2 lg:col-span-1">
-          <div className="p-6">
-            <h1 className="mt-3 text-3xl text-[#1f1f1f] dark:text-[#cccccc]">Hi, I am Mubashir -</h1>
-            <p className="mt-6 text-stone-500 text-xl">
-              Software Developer, Freelancer
-            </p>
-          </div>
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="col-span-1 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] md:col-span-2 lg:col-span-1">
+        <div className="p-6">
+          <h1 className="mt-3 text-3xl text-[#1f1f1f] dark:text-[#cccccc]">Hi, I&apos;m Mubashir –</h1>
+          <p className="mt-6 text-xl leading-relaxed text-stone-500">
+            Software engineer, currently an SDE-1 at{" "}
+            <Link href="/projects/prana" className="underline underline-offset-4 decoration-stone-400 hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
+              Prana
+            </Link>{" "}
+            based in {site.location}.
+          </p>
         </div>
-        <div className="col-span-1 min-h-60 sm:min-h-48 group  rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] hover:bg-opacity-50 ">
-          <div className="  relative  h-full">
-          <div className="p-6 ">
-            <h1 className="text-xl font-medium text-stone-500">About</h1>
-            <p className="mt-4 text-[#1f1f1f] dark:text-[#cccccc] text-3xl font-light">
-              I make stuff happen with code
-            </p>
-          </div>
-          {/* Icon positioned at the bottom right */}
-          <div className="absolute bottom-4 right-4  md:none">
-            <div className="relative border-2 border-[#d9dbde] dark:border-[#242424] hover:border-[#d9dbde] flex items-center justify-center rounded-full h-16 w-16 overflow-hidden  transition-transform duration-100 ease-in-out hover:rotate-45">
-              <div className="flex items-center justify-center">
-                <div className="absolute transition-transform duration-300 ease-in-out group-hover:translate-x-12 group-hover:-translate-y-12">
-                  <ArrowUpRight className="text-[#1f1f1f] dark:text-[#cccccc] h-6 w-6" />
-                </div>
-                <div className="absolute transition-transform duration-300 ease-in-out -translate-x-12 translate-y-12 group-hover:translate-x-0 group-hover:-translate-y-0 ">
-                  <ArrowUpRight className="text-[#1f1f1f] dark:text-[#cccccc] h-6 w-6" />
-                </div>
-              </div>
-            </div>
-          </div>  
-          </div>
-        </div>
+      </div>
 
-        <div className="col-span-1 hidden rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] md:col-span-1 md:block lg:col-span-1 lg:w-full">
-          <img
-            src="/pfp.jpg"
-            alt="Mubashir Tanwar"
-            className="rounded-3xl aspect-square h-64 w-full object-cover"
-          />
+      <Link
+        href="/about"
+        aria-label="About me"
+        className="group col-span-1 flex min-h-60 sm:min-h-48 flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414]"
+      >
+        {/* Not position:relative, so the page's paper texture sits over it like the other cards. */}
+        <div className="p-6">
+          <h2 className="text-xs uppercase tracking-[0.2em] text-stone-500">About</h2>
+          <p className="mt-4 text-3xl font-light text-[#1f1f1f] dark:text-[#cccccc]">I make stuff happen with code</p>
         </div>
+        <div className="mt-auto self-end p-4">
+          <ArrowBadge />
+        </div>
+      </Link>
+
+      <div className="col-span-1 hidden overflow-hidden rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] md:block">
+        <Image src="/pfp.jpg" alt="Mubashir Tanwar" width={800} height={800} priority className="aspect-square h-64 w-full object-cover" sizes="(min-width: 1024px) 33vw, 50vw" />
       </div>
     </div>
   );
