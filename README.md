@@ -26,15 +26,13 @@ Sub-pages open inside the same frame with a round ✕ to close (Esc works too).
 
 A social tile stays hidden while its `url` is empty.
 
-## Listening card
+## Spotify card
 
-The "Listening now / Last played" card reads Last.fm, which logs your Spotify plays:
+Spotify has no public feed, so the listening card uses your own account and stays hidden until these are set in Vercel → Settings → Environment Variables:
 
-1. Create a Last.fm account and connect Spotify under Settings → Applications.
-2. Get a free API key at https://www.last.fm/api/account/create.
-3. In Vercel → Settings → Environment Variables, add `LASTFM_USER` (your Last.fm username) and `LASTFM_API_KEY`, then redeploy.
-
-The card stays hidden until both are set. Reading straight from Spotify still works too: set `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET` and `SPOTIFY_REFRESH_TOKEN` (see `scripts/spotify-token.mjs`).
+1. Create an app at https://developer.spotify.com/dashboard with redirect URI `http://127.0.0.1:8888/callback`.
+2. Run `SPOTIFY_CLIENT_ID=… SPOTIFY_CLIENT_SECRET=… node scripts/spotify-token.mjs`, open the link it prints and approve.
+3. Add `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET` and the printed `SPOTIFY_REFRESH_TOKEN` to Vercel, then redeploy.
 
 ## Develop
 

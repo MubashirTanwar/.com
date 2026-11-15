@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import { getLetterboxd } from "@/lib/feeds/letterboxd";
 import { getCurrentlyReading, GOODREADS_PROFILE } from "@/lib/feeds/goodreads";
 import { getListening } from "@/lib/feeds/spotify";
-import { getLastfmListening } from "@/lib/feeds/lastfm";
 import { stars } from "@/lib/feeds/text";
 import { SocialIcon } from "@/components/shell/SocialIcon";
 import { cn } from "@/lib/utils";
@@ -21,7 +20,7 @@ function Corner() {
 
 /** Live "off the clock" row: Goodreads, Letterboxd and Spotify. Each card hides if its source is unavailable. */
 export async function OffTheClock() {
-  const [books, { lastWatched, lastReview }, track] = await Promise.all([getCurrentlyReading(), getLetterboxd(), getLastfmListening().then((t) => t ?? getListening())]);
+  const [books, { lastWatched, lastReview }, track] = await Promise.all([getCurrentlyReading(), getLetterboxd(), getListening()]);
   const cards = [books.length > 0, !!lastWatched, !!lastReview, !!track].filter(Boolean).length;
   if (!cards) return null;
 
