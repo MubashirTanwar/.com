@@ -39,6 +39,7 @@ export function CommandPalette({ children }: { children: React.ReactNode }) {
         icon: <FolderOpen className="h-4 w-4" />,
         run: go(`/projects/${p.slug}`),
       })),
+      { id: "more", label: "More projects", hint: "Sudoku, timetabling, OCR…", group: "Projects", icon: <FolderOpen className="h-4 w-4" />, run: go("/projects/more") },
       {
         id: "copy",
         label: "Copy email",
