@@ -205,6 +205,15 @@ export const moreProjects: MiniProject[] = [
           "The dialog shows the unallocated amount live and only allows saving when it reaches exactly zero, never over-allocated.",
         ],
       },
+      {
+        heading: "Outcome",
+        points: [
+          "Live in 2026, replacing the Salesforce org entirely.",
+          "Export documents come straight from order data in one click: turnaround went from an afternoon to under a minute.",
+          "Reconciliation that meant cross-checking three spreadsheets now happens in one dialog.",
+          "The India and Singapore teams work in scoped views of one database, with no Salesforce profiles or sharing rules.",
+        ],
+      },
     ],
   },
   {
