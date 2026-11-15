@@ -36,13 +36,14 @@ function Head() {
       <Link
         href="/about"
         aria-label="About me"
-        className="group relative col-span-1 min-h-60 sm:min-h-48 rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] transition-colors hover:bg-[#fafafa] dark:hover:bg-[#171717]"
+        className="group col-span-1 flex min-h-60 sm:min-h-48 flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414]"
       >
+        {/* Not position:relative, so the page's paper texture sits over it like the other cards. */}
         <div className="p-6">
           <h2 className="text-xs uppercase tracking-[0.2em] text-stone-500">About</h2>
           <p className="mt-4 text-3xl font-light text-[#1f1f1f] dark:text-[#cccccc]">I make stuff happen with code</p>
         </div>
-        <div className="absolute bottom-4 right-4">
+        <div className="mt-auto self-end p-4">
           <ArrowBadge />
         </div>
       </Link>

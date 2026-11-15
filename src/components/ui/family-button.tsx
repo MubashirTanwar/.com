@@ -78,7 +78,8 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
           ? {
               borderRadius: 20,
               width: 200,
-              height: CONTAINER_SIZE + 50,
+              // theme toggle + 4 buttons + the close button underneath
+              height: CONTAINER_SIZE + 125,
               transition: {
                 type: "spring",
                 damping: 25,

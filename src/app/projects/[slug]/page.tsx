@@ -116,7 +116,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        <Link href={`/projects/${next.slug}`} className={cn(card, "group relative flex items-center gap-4 overflow-hidden p-4 pr-6")}>
+        <Link href={`/projects/${next.slug}`} className={cn(card, "group flex items-center gap-4 overflow-hidden p-4 pr-6")}>
           <Image src={next.card} alt="" width={160} height={100} className="h-20 w-32 rounded-2xl object-cover" />
           <div className="min-w-0">
             <p className={eyebrow}>Next project</p>

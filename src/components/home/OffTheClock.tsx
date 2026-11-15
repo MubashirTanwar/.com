@@ -7,7 +7,7 @@ import { stars } from "@/lib/feeds/text";
 import { SocialIcon } from "@/components/shell/SocialIcon";
 import { cn } from "@/lib/utils";
 
-const card = "group relative flex flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6 transition-colors hover:bg-[#fafafa] dark:hover:bg-[#171717]";
+const card = "group flex flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6 transition-colors hover:bg-[#fafafa] dark:hover:bg-[#171717]";
 const eyebrow = "flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-500";
 const title = "text-[#1f1f1f] dark:text-[#cccccc]";
 
@@ -15,7 +15,7 @@ const fmtDate = (iso?: string) =>
   iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "";
 
 function Corner() {
-  return <ArrowUpRight className="absolute top-5 right-5 h-5 w-5 text-stone-400 transition-transform duration-300 group-hover:rotate-45" />;
+  return <ArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-stone-400 transition-transform duration-300 group-hover:rotate-45" />;
 }
 
 /** Live "off the clock" row: Goodreads, Letterboxd and Spotify. Each card hides if its source is unavailable. */
@@ -28,9 +28,9 @@ export async function OffTheClock() {
     <section aria-label="Off the clock" className={cn("grid gap-4 grid-cols-1 sm:grid-cols-2", cards >= 3 && "lg:grid-cols-4", cards === 3 && "lg:grid-cols-3")}>
       {books.length > 0 && (
         <a href={books.length === 1 ? books[0].url : `${GOODREADS_PROFILE}`} target="_blank" rel="noopener noreferrer" className={card}>
-          <Corner />
           <p className={eyebrow}>
             <SocialIcon icon="goodreads" className="h-3.5 w-3.5" /> Currently reading
+            <Corner />
           </p>
           <ul className="mt-5 space-y-4">
             {books.slice(0, 2).map((b) => (
@@ -48,9 +48,9 @@ export async function OffTheClock() {
 
       {lastWatched && (
         <a href={lastWatched.url} target="_blank" rel="noopener noreferrer" className={card}>
-          <Corner />
           <p className={eyebrow}>
             <SocialIcon icon="letterboxd" className="h-3.5 w-3.5" /> Last watched
+            <Corner />
           </p>
           <div className="mt-5 flex gap-4">
             {lastWatched.poster && (
@@ -76,9 +76,9 @@ export async function OffTheClock() {
 
       {lastReview && (
         <a href={lastReview.url} target="_blank" rel="noopener noreferrer" className={card}>
-          <Corner />
           <p className={eyebrow}>
             <SocialIcon icon="letterboxd" className="h-3.5 w-3.5" /> Last reviewed
+            <Corner />
           </p>
           <blockquote className={cn("mt-5 text-xl font-light leading-snug line-clamp-5", title)}>“{lastReview.review}”</blockquote>
           <p className="mt-auto pt-4 text-sm text-stone-500">
@@ -90,7 +90,6 @@ export async function OffTheClock() {
 
       {track && (
         <a href={track.url} target="_blank" rel="noopener noreferrer" className={card}>
-          <Corner />
           <p className={eyebrow}>
             {track.playing ? (
               <span className="flex h-3.5 items-end gap-[2px]" aria-hidden>
@@ -102,6 +101,7 @@ export async function OffTheClock() {
               <SocialIcon icon="spotify" className="h-3.5 w-3.5" />
             )}
             {track.playing ? "Listening now" : "Last played"}
+            <Corner />
           </p>
           <div className="mt-5 flex gap-4">
             {track.art && <Image src={track.art} alt="" width={96} height={96} className="h-24 w-24 shrink-0 rounded-md object-cover shadow-sm" />}
