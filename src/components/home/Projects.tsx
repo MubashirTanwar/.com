@@ -75,11 +75,11 @@ function NowCard() {
 
 function ExperienceCard() {
   return (
-    <section className="bg-white dark:bg-[#141414] border border-[#d9dbde] dark:border-[#242424] rounded-3xl p-3 md:p-6">
-      <h2 className="text-3xl text-[#1f1f1f] dark:text-[#cccccc] pt-6 pl-6 md:p-0">Experience</h2>
-      <div className="space-y-4 mt-4">
-        <ExperienceTimeline />
-      </div>
+    <section aria-labelledby="experience" className="space-y-4">
+      <h2 id="experience" className="px-2 pt-4 text-3xl text-[#1f1f1f] dark:text-[#cccccc]">
+        Experience
+      </h2>
+      <ExperienceTimeline />
     </section>
   );
 }

@@ -11,6 +11,8 @@ type Job = {
   link?: string;
   github?: string;
   project?: string;
+  /** One number that sums the role up, shown big on its card. */
+  highlight?: { value: string; label: string };
 };
 
 export const jobs = resumeData.experience as Job[];
@@ -22,58 +24,85 @@ export const prettyTitle = (t: string) =>
     .map((w) => (/\d/.test(w) ? w : w.charAt(0) + w.slice(1).toLowerCase()))
     .join(" ");
 
-export default function ExperienceTimeline() {
+const card = "flex flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6";
+const heading = "text-[#1f1f1f] dark:text-[#cccccc]";
+
+function Tags({ skills }: { skills?: string[] }) {
   return (
-    <div>
-      {jobs.map((exp) => (
-        <div
-          key={exp.title + exp.period}
-          className="relative hover:bg-[#f7f6f6] hover:dark:bg-[#121212]/70 p-5 md:p-8 md:px-12 rounded-3xl"
-        >
-          <div className="absolute left-0 md:left-4 top-0 ml-[3px] h-full w-[2px] bg-gray-500" />
-          <div className="absolute left-0 md:left-4 top-10 w-2 h-2 rounded-full bg-purple-400" />
-          <div className="flex justify-between items-start mb-1 gap-4">
-            <h3 className="text-2xl font-semibold text-[#1f1f1f] dark:text-[#cccccc]">{prettyTitle(exp.title)}</h3>
-            <div className="flex space-x-3 pt-1 text-[#1f1f1f] dark:text-[#cccccc]">
-              {exp.github && (
-                <a href={exp.github} target="_blank" rel="noopener noreferrer" aria-label={`${exp.company} on GitHub`}>
-                  <GithubIcon className="h-5 w-5" />
-                </a>
-              )}
-              {exp.link && (
-                <a href={exp.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${exp.company}`}>
-                  <ExternalLinkIcon className="h-5 w-5" />
-                </a>
-              )}
-            </div>
-          </div>
-          <div className="mb-2 text-lg text-[#1f1f1f] dark:text-[#cccccc]">
-            {exp.company} | {exp.period}
-          </div>
-          <ul className="space-y-3 mb-6">
-            {exp.responsibilities.map((desc) => (
-              <li key={desc} className="flex items-start space-x-2 text-zinc-500 dark:text-zinc-400">
-                <span className="text-md font-semibold text-[#1f1f1f] dark:text-[#cccccc]"> - </span>
-                <span className="text-base sm:text-lg leading-tight">{desc}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="flex flex-wrap items-center gap-2">
-            {exp.skills?.map((skill) => (
-              <Badge key={skill} variant="secondary" className="bg-zinc-200 dark:bg-zinc-700 text-zinc-500 dark:text-zinc-400">
-                {skill}
-              </Badge>
-            ))}
-            {exp.project && (
-              <Link
-                href={`/projects/${exp.project}`}
-                className="ml-auto inline-flex items-center gap-1 text-sm text-stone-500 hover:text-[#1f1f1f] dark:hover:text-[#cccccc]"
-              >
-                Case study <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            )}
-          </div>
+    <div className="flex flex-wrap gap-1.5">
+      {skills?.map((s) => (
+        <span key={s} className="rounded-full bg-[#f4f5f6] dark:bg-[#1f1f1f] px-2.5 py-1 text-xs text-stone-600 dark:text-stone-400">
+          {s}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function Links({ job }: { job: Job }) {
+  if (!job.project && !job.link && !job.github) return null;
+  return (
+    <div className="flex flex-wrap items-center gap-4 text-sm text-stone-500">
+      {job.project && (
+        <Link href={`/projects/${job.project}`} className="inline-flex items-center gap-1 hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
+          Case study <ArrowUpRight className="h-4 w-4" />
+        </Link>
+      )}
+      {job.link && (
+        <a href={job.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${job.company}`} className="hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
+          <ExternalLinkIcon className="h-4 w-4" />
+        </a>
+      )}
+      {job.github && (
+        <a href={job.github} target="_blank" rel="noopener noreferrer" aria-label={`${job.company} on GitHub`} className="hover:text-[#1f1f1f] dark:hover:text-[#cccccc]">
+          <GithubIcon className="h-4 w-4" />
+        </a>
+      )}
+    </div>
+  );
+}
+
+function JobCard({ job, featured }: { job: Job; featured?: boolean }) {
+  const company = job.company.split(",")[0];
+  return (
+    <article className={`${card} ${featured ? "md:col-span-3 lg:flex-row lg:gap-10" : ""}`}>
+      <div className={featured ? "lg:w-72 lg:shrink-0" : ""}>
+        <p className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-stone-500">
+          {featured && <span className="h-2 w-2 rounded-full bg-emerald-500" aria-label="Current role" />}
+          {job.period}
+        </p>
+        <h3 className={`mt-2 ${featured ? "text-3xl" : "text-xl"} ${heading}`}>{prettyTitle(job.title)}</h3>
+        <p className="text-stone-500">{company}</p>
+        {job.highlight && (
+          <>
+            <p className={`mt-5 font-light ${featured ? "text-6xl" : "text-4xl"} ${heading}`}>{job.highlight.value}</p>
+            <p className="mt-1 text-sm text-stone-500">{job.highlight.label}</p>
+          </>
+        )}
+      </div>
+      <div className={`mt-5 flex flex-1 flex-col ${featured ? "lg:mt-0" : ""}`}>
+        <ul className="space-y-2 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+          {(featured ? job.responsibilities : job.responsibilities.slice(0, 2)).map((r) => (
+            <li key={r}>{r}</li>
+          ))}
+        </ul>
+        <div className="mt-auto space-y-4 pt-5">
+          <Tags skills={featured ? job.skills : job.skills?.slice(0, 5)} />
+          <Links job={job} />
         </div>
+      </div>
+    </article>
+  );
+}
+
+/** Current role as a wide card, earlier roles beneath, each led by one number. */
+export default function ExperienceGrid() {
+  const [current, ...earlier] = jobs;
+  return (
+    <div className="grid gap-4 md:grid-cols-3">
+      <JobCard job={current} featured />
+      {earlier.map((j) => (
+        <JobCard key={j.title + j.period} job={j} />
       ))}
     </div>
   );

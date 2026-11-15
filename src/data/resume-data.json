@@ -57,7 +57,11 @@
         "Docker"
       ],
       "link": "https://pranaindia.com",
-      "project": "prana"
+      "project": "prana",
+      "highlight": {
+        "value": "4x",
+        "label": "landing-to-consultation conversion"
+      }
     },
     {
       "title": "SOFTWARE DEVELOPER INTERN",
@@ -80,7 +84,11 @@
         "Postgres",
         "Docker",
         "Python"
-      ]
+      ],
+      "highlight": {
+        "value": "~2 days",
+        "label": "of duplicated UI work saved every week"
+      }
     },
     {
       "title": "DEEP LEARNING INTERN",
@@ -99,7 +107,11 @@
         "TrOCR",
         "Transformers"
       ],
-      "github": "https://github.com/MubashirTanwar/TrOCR"
+      "github": "https://github.com/MubashirTanwar/TrOCR",
+      "highlight": {
+        "value": "83%",
+        "label": "accuracy on handwritten Marathi, 135k training pairs"
+      }
     },
     {
       "title": "FULL STACK DEVELOPER",
@@ -119,7 +131,11 @@
         "Amadeus API"
       ],
       "link": "https://bestfares365.com.au/",
-      "project": "bestfares365"
+      "project": "bestfares365",
+      "highlight": {
+        "value": "3 apps",
+        "label": "customer site, agent portal and admin CRM, rebuilt end to end"
+      }
     }
   ],
   "freelance": [
