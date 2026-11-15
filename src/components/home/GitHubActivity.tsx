@@ -1,4 +1,6 @@
 import { Github, GitCommitHorizontal } from "lucide-react";
+import { getContributions } from "@/lib/feeds/github";
+import { ContributionGraph } from "./ContributionGraph";
 
 const USER = "MubashirTanwar";
 
@@ -39,13 +41,13 @@ const ago = (iso: string) => {
 
 /** Latest public commits, refreshed hourly. Renders nothing if GitHub can't be reached. */
 export async function GitHubActivity() {
-  const pushes = await getPushes();
-  if (!pushes.length) return null;
+  const [pushes, graph] = await Promise.all([getPushes(), getContributions()]);
+  if (!pushes.length && !graph) return null;
 
   return (
     <section className="rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6 md:p-8">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-3xl text-[#1f1f1f] dark:text-[#cccccc]">Lately on GitHub</h2>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h2 className="text-2xl md:text-3xl text-[#1f1f1f] dark:text-[#cccccc]">Lately on GitHub</h2>
         <a
           href={`https://github.com/${USER}`}
           target="_blank"
@@ -55,6 +57,8 @@ export async function GitHubActivity() {
           <Github className="h-4 w-4" /> @{USER}
         </a>
       </div>
+      {graph && <ContributionGraph days={graph.days} total={graph.total} />}
+      {pushes.length > 0 && (
       <ul className="mt-6 divide-y divide-[#eceef0] dark:divide-[#1f1f1f]">
         {pushes.map((e) => {
           const commit = e.payload.commits![e.payload.commits!.length - 1];
@@ -78,6 +82,7 @@ export async function GitHubActivity() {
           );
         })}
       </ul>
+      )}
     </section>
   );
 }
