@@ -3,7 +3,7 @@
 import { ChevronLeft, ChevronRight, Monitor, Smartphone, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Shot } from "@/data/projects";
 import { card, heading } from "@/components/shell/styles";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,7 @@ function PhoneFrame({ shot, onClick }: { shot: Shot; onClick?: () => void }) {
     <button
       type="button"
       onClick={onClick}
-      className="block shrink-0 w-[200px] md:w-[190px] lg:w-[200px] snap-center rounded-[2.2rem] border-[6px] border-[#1f1f1f] dark:border-[#2a2a2a] bg-black overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-400"
+      className="block shrink-0 w-[200px] md:w-[190px] lg:w-[200px] snap-start rounded-[2.2rem] border-[6px] border-[#1f1f1f] dark:border-[#2a2a2a] bg-black overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-400"
       aria-label={`Enlarge: ${shot.alt}`}
     >
       <Image src={shot.src} alt={shot.alt} width={780} height={1688} className="w-full h-auto" sizes="200px" />
@@ -50,6 +50,23 @@ export function Gallery({ desktop, mobile }: { desktop: Shot[]; mobile: Shot[] }
     (d: number) => setOpen((o) => (o ? { ...o, index: (o.index + d + list.length) % list.length } : o)),
     [list.length]
   );
+
+  // Swipe left/right in the lightbox on touch screens.
+  const touchX = useRef<number | null>(null);
+  const swiped = useRef(false);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
+    swiped.current = false;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    touchX.current = null;
+    if (Math.abs(dx) > 40) {
+      swiped.current = true;
+      step(dx < 0 ? 1 : -1);
+    }
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -106,7 +123,7 @@ export function Gallery({ desktop, mobile }: { desktop: Shot[]; mobile: Shot[] }
           ))}
         </div>
       ) : (
-        <div className="-mx-4 md:mx-0 px-4 md:px-0 flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 md:justify-center">
+        <div className="-mx-4 md:mx-0 px-4 md:px-0 flex gap-5 overflow-x-auto overscroll-x-contain snap-x snap-mandatory scroll-px-4 md:scroll-px-0 pb-2 [-webkit-overflow-scrolling:touch]">
           {mobile.map((s, i) => (
             <figure key={s.src} className="shrink-0">
               <PhoneFrame shot={s} onClick={() => setOpen({ view: "mobile", index: i })} />
@@ -127,7 +144,15 @@ export function Gallery({ desktop, mobile }: { desktop: Shot[]; mobile: Shot[] }
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setOpen(null)}
+            onClick={() => {
+              if (swiped.current) {
+                swiped.current = false;
+                return;
+              }
+              setOpen(null);
+            }}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
           >
             <motion.div
               key={list[open.index].src}
