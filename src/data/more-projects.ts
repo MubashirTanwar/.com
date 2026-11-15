@@ -157,11 +157,55 @@ export const moreProjects: MiniProject[] = [
   {
     slug: "unilosa",
     title: "Unilosa CRM",
-    kind: "Freelance · CRM",
-    stat: { value: "Salesforce", label: "replaced with a custom CRM" },
-    summary: "A CRM built for an export-trading company to replace their Salesforce setup.",
-    tags: ["TypeScript", "Node.js"],
-    sections: [],
+    kind: "Technical co-founder · SaaS CRM",
+    year: "2026",
+    stat: { value: "68 models", label: "294 API routes, ~62k lines of TypeScript" },
+    summary:
+      "A CRM that replaced Salesforce end to end for an India–Singapore export-trading company, now being sold to other trading companies.",
+    tags: ["Next.js", "TypeScript", "Express", "Prisma", "PostgreSQL", "Socket.IO", "Puppeteer", "AWS S3"],
+    sections: [
+      {
+        heading: "Why replace Salesforce",
+        body: "The company trades through two legal entities, one in India (INR) and one in Singapore (USD), and years of formula fields and manual workarounds had piled up in Salesforce. Sales couldn't see payment status, accounts exported to Word to make shipping documents, and nothing was scoped per entity.",
+      },
+      {
+        heading: "Architecture",
+        points: [
+          "Next.js App Router front end and a separate Express + TypeScript API, both on AWS Amplify, the API in Docker.",
+          "PostgreSQL through Prisma: 68 models covering orders, contacts, products, documents, bank entries, allocations, chat and roles.",
+          "NextAuth issues a JWT that the API reads from a cookie, so server-side fetches and browser calls share one session.",
+          "Socket.IO runs on the same HTTP server for chat; the handshake goes through the same JWT middleware.",
+          "Files live in S3 behind CloudFront.",
+        ],
+      },
+      {
+        heading: "Permissions per role and per entity",
+        points: [
+          "9 roles, from Super Admin to Accounts Maker/Approver, each scoped to a legal entity: a sales exec in India never sees Singapore's pipeline.",
+          "Each role is a database row holding a JSON permission tree (opportunities, contacts, products, accounting, folders, tabs), with per-user folder overrides.",
+          "The auth middleware resolves the user's entity-scoped role on every request rather than trusting the role in the JWT, and one checkPerm(permissions, \"accounting.view\") helper gates the whole API.",
+        ],
+      },
+      {
+        heading: "Export documents",
+        points: [
+          "15 document types (sales contracts, proforma and commercial invoices, packing lists, bills of lading, certificates of origin, purchase orders, credit/debit notes…), each an EJS template rendered to PDF.",
+          "One Puppeteer browser is started with the server and reused across requests, instead of launching Chromium per document.",
+          "Fonts are inlined as base64 before rendering, so PDFs never wait on a font CDN; drafts get a watermark stamped on every page with pdf-lib.",
+        ],
+      },
+      {
+        heading: "Salesforce formulas, ported",
+        body: "18 Salesforce formula fields (net and gross weight, rounded net weight, bag count, unit price…) became one TypeScript module that runs live in the browser. It keeps the originals' edge cases: shared and dedicated containers, multi-product containers, MT/KG/LTR/KL conversions and rounding rules.",
+      },
+      {
+        heading: "Bank reconciliation",
+        points: [
+          "Imported bank entries are reconciled against one or more invoices through allocation records, or matched to an entry in another account as an internal transfer.",
+          "The dialog shows the unallocated amount live and only allows saving when it reaches exactly zero, never over-allocated.",
+        ],
+      },
+    ],
   },
   {
     slug: "auctionworld",
