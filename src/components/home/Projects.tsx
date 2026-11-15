@@ -7,6 +7,7 @@ import { SocialIcon } from "@/components/shell/SocialIcon";
 import ExperienceTimeline from "./Experience";
 import { GitHubActivity } from "./GitHubActivity";
 import { OffTheClock } from "./OffTheClock";
+import { MoreProjects } from "./MoreProjects";
 
 function ProjectCard({ slug, title, kind, card, summary }: (typeof projects)[number]) {
   return (
@@ -42,7 +43,7 @@ function ProjectCard({ slug, title, kind, card, summary }: (typeof projects)[num
 
 function NowCard() {
   return (
-    <div className="flex h-56 lg:h-72 flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6">
+    <div className="flex min-h-56 lg:min-h-72 flex-col rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] p-6">
       <p className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-500">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
@@ -92,6 +93,7 @@ export default function Projects() {
         ))}
         <NowCard />
       </section>
+      <MoreProjects />
       <OffTheClock />
       <GitHubActivity />
       <ExperienceCard />
