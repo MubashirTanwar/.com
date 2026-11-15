@@ -6,7 +6,7 @@ import { lifeLabel, lifeSocials, site, workSocials } from "@/data/site";
 import { CloseButton } from "@/components/shell/CloseButton";
 import { SocialIcon } from "@/components/shell/SocialIcon";
 import { card, eyebrow, heading } from "@/components/shell/styles";
-import { PhotoRotator, Rotator } from "@/components/about/Rotator";
+import { Rotator } from "@/components/about/Rotator";
 import { CopyMailButton } from "@/components/home/MailCopy";
 import StackHome from "@/components/home/Carousel";
 import { jobs, prettyTitle } from "@/components/home/Experience";
@@ -116,16 +116,9 @@ export default function AboutPage() {
           </Link>
         </section>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className={cn(card, "overflow-hidden")}>
-            <PhotoRotator
-              photos={[
-                { src: "/pfp.jpg", alt: "Mubashir Tanwar" },
-                { src: "/pfp2.jpg", alt: "Mubashir holding a cat" },
-              ]}
-            />
-          </div>
-          <div className="grid gap-4">
+        <div className="grid gap-4">
+          {/* TODO: a photo of Kittu goes here (PhotoRotator in components/about/Rotator.tsx). */}
+          <div className="grid gap-4 sm:grid-cols-2">
             <section className={cn(card, "p-6 flex flex-col")}>
               <h2 className={cn("text-xl", heading)}>Have a project in mind?</h2>
               <div className="mt-auto pt-4">
