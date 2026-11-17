@@ -49,7 +49,7 @@ function Head() {
       </Link>
 
       <div className="col-span-1 hidden overflow-hidden rounded-3xl border border-[#d9dbde] dark:border-[#242424] bg-white dark:bg-[#141414] md:block">
-        <Image src="/pfp.jpg" alt="Mubashir Tanwar" width={800} height={800} priority className="aspect-square h-64 w-full object-cover" sizes="(min-width: 1024px) 33vw, 50vw" />
+        <Image src="/pfp.jpg" alt="Mubashir Tanwar" width={1254} height={730} priority className="aspect-square h-64 w-full object-cover" sizes="(min-width: 1024px) 33vw, 50vw" />
       </div>
     </div>
   );
